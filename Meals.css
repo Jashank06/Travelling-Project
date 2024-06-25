@@ -1,0 +1,331 @@
+  /* Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #062a43;
+    color: #fff;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header .user-account a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('hero.jpg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero-buttons .btn {
+    background-color: #062a43;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Meal Plans Section */
+.meal-plans {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.meal-plans h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #062a43;
+}
+
+.meal-plans .plans {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.meal-plans .plan {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: rgba(73, 108, 148, 0.3) 0px 0px 0px 3px;
+}
+
+.meal-plans .plan img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.meal-plans .plan h3 {
+    font-size: 24px;
+    margin: 10px 0;
+    color: #062a43;
+}
+
+.meal-plans .plan p {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #062a43;
+}
+
+.meal-plans .btn {
+    background-color: #062a43;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 10px 0;
+    text-decoration: none;
+    border-radius: 3px;
+    margin-top: 200px;
+}
+
+/* Local Dining Options Section */
+.local-dining {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.local-dining h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #062a43;
+}
+
+.local-dining .search-bar input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.local-dining .dining-tabs {
+    margin-bottom: 20px;
+}
+
+.local-dining .tab {
+    background-color: #ddd;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.local-dining .tab.active {
+    background-color: #062a43;
+    color: #fff;
+}
+
+.local-dining .dining-options {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.local-dining .option {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: rgba(73, 108, 148, 0.3) 0px 0px 0px 3px;
+    text-align: left;
+    color: #062a43;
+}
+
+.local-dining .option img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.local-dining .option h3 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.local-dining .option p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* Reservation Form Section */
+.reservation-form {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.reservation-form h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #062a43;
+}
+
+.reservation-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reservation-form form label {
+    font-size: 16px;
+    margin: 10px 0 5px 0;
+    color: #062a43;
+}
+
+.reservation-form form input, 
+.reservation-form form textarea {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    color: #062a43;
+}
+
+.reservation-form form button {
+    background-color: #062a43;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Reviews Section */
+.reviews {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.reviews h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #062a43;
+}
+
+.review-carousel {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+}
+
+.review {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: rgba(73, 108, 148, 0.3) 0px 0px 0px 3px;
+    display: flex;
+    scroll-snap-align: start;
+}
+
+.review p {
+    font-size: 16px;
+    color: #062a43;
+}
+
+.review p:last-child {
+    font-style: italic;
+}
+
+.reviews .btn {
+    background-color: #062a43;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 20px 0;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Footer */
+footer {
+    background-color: #062a43;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer .footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+footer .quick-links,
+footer .social-media,
+footer .contact-info {
+    margin: 10px;
+}
+
+footer h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin: 5px 0;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer .social-media ul {
+    display: flex;
+    justify-content: center;
+}
+
+footer .social-media ul li {
+    margin: 0 10px;
+}
+
+footer .social-media ul li img {
+    width: 24px;
+}

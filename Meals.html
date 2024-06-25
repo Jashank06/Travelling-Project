@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Meal Plans and Reservations</title>
+    <link rel="stylesheet" href="Meals.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">TravelSite</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Destinations</a></li>
+                <li><a href="#">Meal Plans</a></li>
+                <li><a href="#">Reservations</a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="user-account"><a href="#">Login/Sign-Up</a></div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Taste the World One Meal at a Time</h1>
+            <div class="hero-buttons">
+                <a href="#" class="btn">Explore Meal Plans</a>
+                <a href="#" class="btn">Make a Reservation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meal Plans Section -->
+    <section class="meal-plans">
+        <h2>Our Meal Plans</h2>
+        <div class="plans">
+            <div class="plan">
+                <img src="basic.jpg" alt="Basic Meal Plan">
+                <h3>Basic</h3>
+                <p>Includes breakfast and lunch at selected local restaurants.</p>
+                <p>$50 per day</p> <br>
+                <a href="#" class="btn">Choose Basic</a>
+            </div>
+            <div class="plan">
+                <img src="standard.jpg" alt="Standard Meal Plan">
+                <h3>Standard</h3>
+                <p>Includes breakfast, lunch, and dinner at selected local restaurants.</p>
+                <p>$90 per day</p> <br>
+                <a href="#" class="btn">Choose Standard</a>
+            </div>
+            <div class="plan">
+                <img src="premium.jpg" alt="Premium Meal Plan">
+                <h3>Premium</h3>
+                <p>All-inclusive meals at premium local restaurants with dining experiences.</p>
+                <p>$150 per day</p> <br>
+                <a href="#" class="btn">Choose Premium</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Dining Options Section -->
+    <section class="local-dining">
+        <h2>Discover Local Dining</h2>
+        <div class="search-bar">
+            <input type="text" placeholder="Search by cuisine, price range, rating...">
+        </div>
+        <div class="dining-tabs">
+            <button class="tab active">Restaurants</button>
+            <button class="tab">Food Tours</button>
+            <button class="tab">Meal Delivery Services</button>
+        </div>
+        <div class="dining-options">
+            <div class="option">
+                <img src="restaurant1.jpg" alt="La Petite Cuisine">
+                <h3>La Petite Cuisine</h3>
+                <p>French cuisine in a cozy setting. Rated 4.5 stars.</p>
+            </div>
+            <div class="option">
+                <img src="restaurant2.jpg" alt="Sushi World">
+                <h3>Sushi World</h3>
+                <p>Authentic Japanese sushi. Rated 4.7 stars.</p>
+            </div>
+            <div class="option">
+                <img src="restaurant3.jpg" alt="Bella Italia">
+                <h3>Bella Italia</h3>
+                <p>Classic Italian dishes with a modern twist. Rated 4.6 stars.</p>
+            </div>
+            <div class="option">
+                <img src="foodtour.jpg" alt="City Food Tour">
+                <h3>City Food Tour</h3>
+                <p>Explore the city's best eats with guided food tours. Prices start at $30.</p>
+            </div>
+            <div class="option">
+                <img src="delivery.jpg" alt="Gourmet Meals Delivered">
+                <h3>Gourmet Meals Delivered</h3>
+                <p>Get gourmet meals delivered to your doorstep. Prices start at $20.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Form Section -->
+    <section class="reservation-form">
+        <h2>Make a Reservation</h2>
+        <form>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="guests">Number of Guests</label>
+            <input type="number" id="guests" name="guests" required>
+
+            <label for="date">Preferred Dining Date</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Preferred Dining Time</label>
+            <input type="time" id="time" name="time" required>
+
+            <label for="requests">Special Requests</label>
+            <textarea id="requests" name="requests"></textarea>
+
+            <button type="submit" class="btn">Reserve Now</button>
+        </form>
+    </section>
+
+    <!-- User Reviews Section -->
+    <section class="reviews">
+        <h2>Customer Reviews</h2>
+        <div class="review-carousel">
+            <div class="review">
+                <p>"Amazing food and great service. Highly recommend the premium plan!"</p>
+                <p>- Alex Smith</p>
+            </div>
+            <div class="review">
+                <p>"The food tour was a fantastic experience. Learned so much about the local cuisine."</p>
+                <p>- Maria Garcia</p>
+            </div>
+            <div class="review">
+                <p>"Convenient meal delivery service. The food was delicious and fresh."</p>
+                <p>- John Doe</p>
+            </div>
+        </div>
+        <button class="btn">Leave a Review</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="quick-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="social-media">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#"><img src="facebook.png" alt="Facebook"></a></li>
+                    <li><a href="#"><img src="twitter.png" alt="Twitter"></a></li>
+                    <li><a href="#"><img src="instagram.png" alt="Instagram"></a></li>
+                </ul>
+            </div>
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p>123 Travel St, Wanderlust City, World</p>
+                <p>Email: contact@travelsite.com</p>
+                <p>Phone: +123 456 7890</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
