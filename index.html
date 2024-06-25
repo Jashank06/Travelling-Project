@@ -3,9 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Travel Planner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+            padding: 1px;
+            margin-top: 50px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .hero {
+            background-size: cover;
+            background-position: center;
+           
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+            transition: background-image 1s ease-in-out;
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            animation: fadeIn 2s ease-in-out, zoomIn 3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.5); }
+            to { transform: scale(1); }
+        }
+        .content {
+            padding: 2em;
+            text-align: center;
+            background-color: #E6E6FA;
+        }
+
+        .content h2 {
+            font-size: 2.5em;
+            margin-bottom: 1em;
+        }
+
+        .feature {
+            display: inline-block;
+            width: 30%;
+            margin: 1%;
+            padding: 1em;
+            background: #a493e3a6;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+
+        .feature img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .feature h3 {
+            margin-top: 1em;
+            font-size: 1.5em;
+        }
+
+        .feature p {
+            font-size: 1em;
+            color: #666;
+        }
+        
+    </style>
 </head>
 <body>
-    <h1>Travelling website</h1>
+
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#home">Accommodation Booking</a>
+        <div class="dropdown">
+            <a href="#services" class="dropbtn">Services</a>
+            <div class="dropdown-content">
+                <a href="#accommodations">Accommodations</a>
+                <a href="#transportation">Transportation</a>
+                <a href="#meals">Meals</a>
+            </div>
+        </div>
+        <a href="#home">Meal Plans and Reservations</a>
+        <a href="#about">Travel Packages</a>
+        <a href="#about">About Us</a>
+    </nav>
+
+    <div class="hero" id="hero">
+        <h1>JetSetJourney</h1>
+    </div>
+
+    <div class="content">
+        <h2>Plan Your Perfect Trip</h2>
+        <div class="feature">
+            <img src="https://www.luxurylifestylemag.co.uk/wp-content/uploads/2019/08/general-view-11-standard-Copy.jpg" alt="Accommodations" height="235px" >
+            <h3>Accommodations</h3>
+            <p>Find the best places to stay with our comprehensive listings.</p>
+        </div>
+        <div class="feature">
+            <img src="https://media.istockphoto.com/id/174870355/photo/visual-representation-of-transportation-modes.jpg?s=612x612&w=0&k=20&c=IjL0uThZwQHau2TKnBseS_lAFRxVObjmN7o_GRuUB0E=" alt="Transportation" height="250px">
+            <h3>Transportation</h3>
+            <p>Book your flights, trains, and cars all in one place.</p>
+        </div>
+        <div class="feature">
+            <img src="https://www.oklahoman.com/gcdn/authoring/authoring-images/2024/02/28/PLOU/72772244007-cracker-barrel-ha.jpg?width=1200&disable=upscale&format=pjpg&auto=webp" alt="Meals" height="250px">
+            <h3>Meals</h3>
+            <p>Discover great dining options and meal deals.</p>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            'https://getwallpapers.com/wallpaper/full/5/4/d/151063.jpg',
+            'https://getwallpapers.com/wallpaper/full/a/a/1/150892.jpg',
+            'https://getwallpapers.com/wallpaper/full/1/4/d/151079.jpg',
+            'https://getwallpapers.com/wallpaper/full/8/9/c/150932.jpg'
+        ];
+
+        let currentImageIndex = 0;
+        const hero = document.getElementById('hero');
+
+        function changeBackgroundImage() {
+            hero.style.backgroundImage = `url('${images[currentImageIndex]}')`;
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+        }
+
+        setInterval(changeBackgroundImage, 2000);
+        changeBackgroundImage(); // Initial call to set the first image
+    </script>
+
 </body>
 </html>
