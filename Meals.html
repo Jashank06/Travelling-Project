@@ -39,32 +39,37 @@
     </section>
 
     <!-- Meal Plans Section -->
-    <section class="meal-plans">
-        <h2>Our Meal Plans</h2>
-        <div class="plans">
-            <div class="plan">
-                <img src="basic.jpg" alt="Basic Meal Plan">
-                <h3>Basic</h3>
+    <div class="meal-plans">
+        <h2> Our Meal Plans</h2>
+        <div class="slider">
+            <button class="prev">&#10094;</button>
+            <div class="slides">
+                <div class="plan">
+                    <img src="https://www.cnet.com/a/img/resize/bd2081221bc0e44fe801d017146f664d4c76cc30/hub/2023/01/11/5c7424e8-f6fc-4bde-87aa-ea83e758da42/gettyimages-1136168094.jpg?auto=webp&fit=crop&height=675&width=1200" alt="Meal 1">
+                    <h3>Basic</h3>
                 <p>Includes breakfast and lunch at selected local restaurants.</p>
                 <p>$50 per day</p> <br>
                 <a href="#" class="btn">Choose Basic</a>
-            </div>
-            <div class="plan">
-                <img src="standard.jpg" alt="Standard Meal Plan">
-                <h3>Standard</h3>
+                </div>
+                <div class="plan">
+                    <img src="https://www.researchgate.net/publication/371375518/figure/fig1/AS:11431281176252281@1690078991117/Example-of-a-standard-meal-served-during-the-study-period-Mashed-texture-meal-In-the.jpg" alt="Meal 2">
+                    <h3>Standard</h3>
                 <p>Includes breakfast, lunch, and dinner at selected local restaurants.</p>
                 <p>$90 per day</p> <br>
                 <a href="#" class="btn">Choose Standard</a>
+                </div>
+                <div class="plan">
+                    <img src="https://news.delta.com/sites/default/files/styles/schema_share_1200x800/public/2024-04/premselect_meals.jpg?itok=8Cx3XxY8" alt="Meal 3">
+                    <h3>Premium</h3>
+                    <p>All-inclusive meals at premium local restaurants with exclusive dining experiences.</p>
+                    <p>$150 per day</p> <br>
+                    <a href="#" class="btn">Choose Premium</a>
+                </div>
             </div>
-            <div class="plan">
-                <img src="premium.jpg" alt="Premium Meal Plan">
-                <h3>Premium</h3>
-                <p>All-inclusive meals at premium local restaurants with dining experiences.</p>
-                <p>$150 per day</p> <br>
-                <a href="#" class="btn">Choose Premium</a>
-            </div>
+            <button class="next">&#10095;</button>
         </div>
-    </section>
+    </div>
+    
 
     <!-- Local Dining Options Section -->
     <section class="local-dining">
@@ -79,27 +84,27 @@
         </div>
         <div class="dining-options">
             <div class="option">
-                <img src="restaurant1.jpg" alt="La Petite Cuisine">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/0e/63/83/la-petite-cuisine.jpg?w=1200&h=-1&s=1" alt="La Petite Cuisine">
                 <h3>La Petite Cuisine</h3>
                 <p>French cuisine in a cozy setting. Rated 4.5 stars.</p>
             </div>
             <div class="option">
-                <img src="restaurant2.jpg" alt="Sushi World">
+                <img src="https://cdn.britannica.com/52/128652-050-14AD19CA/Maki-zushi.jpg?w=400&h=300&c=crop" alt="Sushi World">
                 <h3>Sushi World</h3>
                 <p>Authentic Japanese sushi. Rated 4.7 stars.</p>
             </div>
             <div class="option">
-                <img src="restaurant3.jpg" alt="Bella Italia">
+                <img src="https://www.expressandstar.com/resizer/1VHOAeR1a-hgqF2jdEHr8jTtD90=/1200x900/cloudfront-us-east-1.images.arcpublishing.com/mna/5QRZCRUV6NFEPJZ7HE2WODLLR4.jpg" alt="Bella Italia">
                 <h3>Bella Italia</h3>
                 <p>Classic Italian dishes with a modern twist. Rated 4.6 stars.</p>
             </div>
             <div class="option">
-                <img src="foodtour.jpg" alt="City Food Tour">
+                <img src="https://foodtourindelhi.com/wp-content/uploads/2023/02/Food-Tours-In-Delhi-600x375.jpg" alt="City Food Tour">
                 <h3>City Food Tour</h3>
                 <p>Explore the city's best eats with guided food tours. Prices start at $30.</p>
             </div>
             <div class="option">
-                <img src="delivery.jpg" alt="Gourmet Meals Delivered">
+                <img src="https://www.itchotels.com/content/dam/itchotels/in/umbrella/miscellaneous-pages/app/gourmet-couch/desktop/gift-a-meal.jpg" alt="Gourmet Meals Delivered">
                 <h3>Gourmet Meals Delivered</h3>
                 <p>Get gourmet meals delivered to your doorstep. Prices start at $20.</p>
             </div>
@@ -107,32 +112,33 @@
     </section>
 
     <!-- Reservation Form Section -->
-    <section class="reservation-form">
-        <h2>Make a Reservation</h2>
-        <form>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" required>
-
-            <label for="guests">Number of Guests</label>
-            <input type="number" id="guests" name="guests" required>
-
-            <label for="date">Preferred Dining Date</label>
-            <input type="date" id="date" name="date" required>
-
-            <label for="time">Preferred Dining Time</label>
-            <input type="time" id="time" name="time" required>
-
-            <label for="requests">Special Requests</label>
-            <textarea id="requests" name="requests"></textarea>
-
-            <button type="submit" class="btn">Reserve Now</button>
-        </form>
+    <section class="reservation-section">
+        <div class="image-container">
+            <img src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Reservation Image 1" class="active">
+            <img src="https://images.unsplash.com/photo-1662982696492-057328dce48b?q=80&w=2037&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Reservation Image 2">
+            <img src="https://images.unsplash.com/photo-1590591061261-799077be8a31?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Reservation Image 3">
+        </div>
+        <div class="reservation-form">
+            <h2>Make a Reservation</h2>
+            <form>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date" required>
+                
+                <label for="time">Time</label>
+                <input type="time" id="time" name="time" required>
+                
+                <label for="message">Message</label>
+                <textarea id="message" name="message"></textarea>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </div>
     </section>
 
     <!-- User Reviews Section -->
@@ -169,9 +175,9 @@
             <div class="social-media">
                 <h3>Follow Us</h3>
                 <ul>
-                    <li><a href="#"><img src="facebook.png" alt="Facebook"></a></li>
-                    <li><a href="#"><img src="twitter.png" alt="Twitter"></a></li>
-                    <li><a href="#"><img src="instagram.png" alt="Instagram"></a></li>
+                    <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Facebook_f_logo_%282021%29.svg/768px-Facebook_f_logo_%282021%29.svg.png?20210818083032" alt="Facebook"></a></li>
+                    <li><a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2496/2496110.png" alt="Twitter"></a></li>
+                    <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/198px-Instagram_logo_2016.svg.png" alt="Instagram"></a></li>
                 </ul>
             </div>
             <div class="contact-info">

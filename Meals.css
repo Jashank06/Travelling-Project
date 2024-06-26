@@ -1,9 +1,9 @@
-  /* Reset */
-  * {
+/* Reset */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Lora', serif; /* Changed to a beautiful serif font */
 }
 
 /* Header */
@@ -39,9 +39,6 @@ header .user-account a {
     color: #fff;
     text-decoration: none;
 }
-
-/* Hero Section */
-/* Existing styles... */
 
 /* Hero Section */
 .hero {
@@ -88,13 +85,14 @@ header .user-account a {
     margin: 10px;
     text-decoration: none;
     border-radius: 5px;
-    margin-top: 20px; /* Added margin-top */
+    margin-top: 20px;
 }
 
 /* Meal Plans Section */
 .meal-plans {
     padding: 50px 20px;
     text-align: center;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.15), 0 2px 2px rgba(0,0,0,0.15), 0 4px 4px rgba(0,0,0,0.15), 0 8px 8px rgba(0,0,0,0.15);
 }
 
 .meal-plans h2 {
@@ -103,37 +101,65 @@ header .user-account a {
     color: #062a43;
 }
 
-.meal-plans .plans {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+.slider {
+    position: relative;
+    max-width: 80%;
+    margin: auto;
+    overflow: hidden;
 }
 
-.meal-plans .plan {
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.plan {
+    min-width: 100%;
+    box-sizing: border-box;
     background-color: #f9f9f9;
     padding: 20px;
-    margin: 10px;
-    width: 300px;
     border-radius: 10px;
     box-shadow: rgba(73, 108, 148, 0.3) 0px 0px 0px 3px;
 }
 
-.meal-plans .plan img {
+.plan img {
     width: 100%;
     border-radius: 10px;
 }
 
-.meal-plans .plan h3 {
+.plan h3 {
     font-size: 24px;
     margin: 10px 0;
     color: #062a43;
 }
 
-.meal-plans .plan p {
+.plan p {
     font-size: 16px;
     margin: 5px 0;
     color: #062a43;
 }
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #062a43;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
 
 .meal-plans .btn {
     background-color: #062a43;
@@ -188,6 +214,11 @@ header .user-account a {
     justify-content: space-around;
     flex-wrap: wrap;
 }
+.local-dining .dining-options :hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.45) inset;
+    cursor: pointer;
+}
 
 .local-dining .option {
     background-color: #f9f9f9;
@@ -215,10 +246,46 @@ header .user-account a {
     margin: 5px 0;
 }
 
-/* Reservation Form Section */
-.reservation-form {
+/* Reservation Section */
+.reservation-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 50px 20px;
-    text-align: center;
+    background-color: white;
+}
+
+.image-container {
+    flex: 1;
+    position: relative;
+    height: 500px; /* Adjust height as needed */
+    overflow: hidden;
+    margin-right: 20px;
+    box-shadow: 0 45px 65px rgba(0,0,0,0.50), 0 35px 22px rgba(0,0,0,0.16);
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+.image-container img.active {
+    opacity: 1;
+}
+
+.reservation-form {
+    flex: 1;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.45) inset;
+    max-width: 500px;
 }
 
 .reservation-form h2 {
@@ -236,26 +303,39 @@ header .user-account a {
 .reservation-form form label {
     font-size: 16px;
     margin: 10px 0 5px 0;
+    width: 100%;
+    text-align: left;
     color: #062a43;
 }
 
 .reservation-form form input, 
 .reservation-form form textarea {
-    width: 80%;
-    padding: 10px;
+    width: 100%;
+    padding: 15px;
     margin-bottom: 20px;
     border: 2px solid #ccc;
     border-radius: 5px;
-    color: #062a43;
+    transition: border 0.3s;
+}
+
+.reservation-form form input:focus,
+.reservation-form form textarea:focus {
+    border: 2px solid #062a43;
 }
 
 .reservation-form form button {
     background-color: #062a43;
     color: #fff;
-    padding: 10px 20px;
+    padding: 15px 30px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.reservation-form form button:hover {
+    background-color: #e5533d;
 }
 
 /* Reviews Section */
