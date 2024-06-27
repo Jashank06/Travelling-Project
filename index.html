@@ -66,7 +66,6 @@
         .hero {
             background-size: cover;
             background-position: center;
-           
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -90,6 +89,7 @@
             from { transform: scale(0.5); }
             to { transform: scale(1); }
         }
+
         .content {
             padding: 2em;
             text-align: center;
@@ -109,11 +109,11 @@
             background: #a493e3a6;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.5s ease-in-out;
         }
 
         .feature:hover {
-            transform: translateY(-10px);
+            transform: scale(1.1);
             box-shadow: 0 0 20px rgba(0,0,0,0.2);
         }
 
@@ -131,7 +131,44 @@
             font-size: 1em;
             color: #666;
         }
-        
+
+        .trip-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2em;
+        }
+
+        .trip {
+            flex: 0 0 22%;
+            padding: -6px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+            height: 221px;
+            transition: all 0.5s ease-in-out;
+        }
+
+         .trip img {
+            background-size: cover;
+            border-radius: 10px;
+            margin-bottom: 1em;
+        } 
+
+        .trip h3 {
+            font-size: 25px;
+            margin-bottom: -12px;
+            margin-top: 5px;
+        }
+
+        .trip p {
+            font-size: 1em;
+            color: #666;
+        }
+        .trip:hover{
+            transform: scale(1.1);
+
+        }
     </style>
 </head>
 <body>
@@ -147,7 +184,7 @@
                 <a href="#meals">Meals</a>
             </div>
         </div>
-        <a href="Meals.html">Meal Plans and Reservations</a> 
+        <a href="#home">Meal Plans and Reservations</a>
         <a href="#about">Travel Packages</a>
         <a href="#about">About Us</a>
     </nav>
@@ -172,6 +209,29 @@
             <img src="https://www.oklahoman.com/gcdn/authoring/authoring-images/2024/02/28/PLOU/72772244007-cracker-barrel-ha.jpg?width=1200&disable=upscale&format=pjpg&auto=webp" alt="Meals" height="250px">
             <h3>Meals</h3>
             <p>Discover great dining options and meal deals.</p>
+        </div>
+    </div>
+
+    <div class="trip-container">
+        <div class="trip">
+            <img src="https://www.educationalschooltrip.com/wp-content/uploads/Top-tips-for-a-successful-School-Trip-.jpg" alt="School Trip" height="220px">
+            <h3>School Trip</h3>
+            <p>Explore educational destinations with friends.</p>
+        </div>
+        <div class="trip">
+            <img src="https://www.shutterstock.com/image-photo/hippie-friends-van-on-road-600nw-735503365.jpg" alt="College Trip" height="220px">
+            <h3>College Trip</h3>
+            <p>Experience adventures with classmates.</p>
+        </div>
+        <div class="trip">
+            <img src="https://economictimes.indiatimes.com/thumb/msid-62982592,width-1200,height-900,resizemode-4,imgsize-71351/plan-a-vacation-with-family-tips-for-multi-generational-travel.jpg?from=mdr" alt="Family Trip" height="220px">
+            <h3>Family Trip</h3>
+            <p>Create memories with loved ones.</p>
+        </div>
+        <div class="trip">
+            <img src="https://img.freepik.com/free-photo/medium-shot-happy-friends-city-lifestyle_23-2149003092.jpg?w=740&t=st=1719447321~exp=1719447921~hmac=246549bdb4016e13c7d1bdc505c1012a1d5f62e89e5cd32f84f7ac74e036bb87" alt="Hangout" height="220px">
+            <h3>Hangout with Random People</h3>
+            <p>Have fun exploring new places with unknowns.</p>
         </div>
     </div>
 
