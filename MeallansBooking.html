@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+    <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">TravelSite</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Destinations</a></li>
+                <li><a href="meal-plan.html">Meal Plans</a></li>
+                <li><a href="#">Reservations</a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="user-account"><a href="#">Login/Sign-Up</a></div>
+    </header>
+
+    <!-- Booking Form Section -->
+    <section class="booking-form">
+        <div class="form-container">
+            <h1>Book Your Meal Plan</h1>
+            <form action="#" method="post">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+                
+                <label for="date">Booking Date:</label>
+                <input type="date" id="date" name="date" required>
+                
+                <label for="meal-plan">Choose Meal Plan:</label>
+                <select id="meal-plan" name="meal-plan" required>
+                    <option value="basic">Basic</option>
+                    <option value="standard">Standard</option>
+                    <option value="premium">Premium</option>
+                </select>
+                
+                <label for="diet">Dietary Preferences:</label>
+                <textarea id="diet" name="diet" rows="4" placeholder="Enter any dietary preferences or restrictions"></textarea>
+                
+                <button type="submit" class="btn">Submit Booking</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="quick-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="social-media">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Facebook_f_logo_%282021%29.svg/768px-Facebook_f_logo_%282021%29.svg.png?20210818083032" alt="Facebook"></a></li>
+                    <li><a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2496/2496110.png" alt="Twitter"></a></li>
+                    <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/198px-Instagram_logo_2016.svg.png" alt="Instagram"></a></li>
+                </ul>
+            </div>
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p>123 Travel St, Wanderlust City, World</p>
+                <p>Email: contact@travelsite.com</p>
+                <p>Phone: +123 456 7890</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lora', serif; /* Changed to a beautiful serif font */
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #062a43;
+    color: #fff;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header .user-account a {
+    color: #fff;
+    text-decoration: none;
+}
+/* Booking Form Styles */
+.booking-form {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.booking-form .form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.booking-form h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #062a43;
+}
+
+.booking-form label {
+    display: block;
+    text-align: left;
+    margin: 10px 0 5px;
+    font-size: 1.1em;
+    color: #062a43;
+}
+
+.booking-form input, .booking-form textarea, .booking-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    color: #062a43;
+}
+
+.booking-form .btn {
+    background-color: #062a43;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.booking-form .btn:hover {
+    background-color: #45a049;
+}
+
+/* Footer */
+footer {
+    background-color: #062a43;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+footer .footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+footer .footer-content div {
+    flex: 1;
+    padding: 10px;
+    min-width: 250px;
+}
+
+footer h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 8px;
+}
+
+footer ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    text-decoration: underline;
+}
+
+footer .social-media img {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    transition: transform 0.3s;
+}
+
+footer .social-media img:hover {
+    transform: scale(1.1);
+}
+
+footer p {
+    margin: 5px 0;
+}
+</style>

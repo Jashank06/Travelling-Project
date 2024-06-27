@@ -317,7 +317,15 @@ header .user-account a {
     border-radius: 5px;
     transition: border 0.3s;
 }
-
+.reservation-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    color: #062a43;
+}
 .reservation-form form input:focus,
 .reservation-form form textarea:focus {
     border: 2px solid #062a43;

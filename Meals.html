@@ -49,21 +49,21 @@
                     <h3>Basic</h3>
                 <p>Includes breakfast and lunch at selected local restaurants.</p>
                 <p>$50 per day</p> <br>
-                <a href="#" class="btn">Choose Basic</a>
+                <a href="BasicMeals.html" class="btn">Choose Basic</a>
                 </div>
                 <div class="plan">
                     <img src="https://www.researchgate.net/publication/371375518/figure/fig1/AS:11431281176252281@1690078991117/Example-of-a-standard-meal-served-during-the-study-period-Mashed-texture-meal-In-the.jpg" alt="Meal 2">
                     <h3>Standard</h3>
                 <p>Includes breakfast, lunch, and dinner at selected local restaurants.</p>
                 <p>$90 per day</p> <br>
-                <a href="#" class="btn">Choose Standard</a>
+                <a href="StandardMeals.html" class="btn">Choose Standard</a>
                 </div>
                 <div class="plan">
                     <img src="https://news.delta.com/sites/default/files/styles/schema_share_1200x800/public/2024-04/premselect_meals.jpg?itok=8Cx3XxY8" alt="Meal 3">
                     <h3>Premium</h3>
                     <p>All-inclusive meals at premium local restaurants with exclusive dining experiences.</p>
                     <p>$150 per day</p> <br>
-                    <a href="#" class="btn">Choose Premium</a>
+                    <a href="premiummeals.html" class="btn">Choose Premium</a>
                 </div>
             </div>
             <button class="next">&#10095;</button>
@@ -132,7 +132,21 @@
                 
                 <label for="time">Time</label>
                 <input type="time" id="time" name="time" required>
-                
+
+                <label for="meal-plan">Choose Meal Plan:</label>
+                <select id="meal-plan" name="meal-plan" required>
+                    <option value="basic">Basic</option>
+                    <option value="standard">Standard</option>
+                    <option value="premium">Premium</option>
+                    <option value="None">None</option>
+                </select>
+                 <label for="meal-plan">Choose Local Dining:</label>
+                <select id="meal-plan" name="meal-plan" required>
+                    <option value="basic">Restaurants</option>
+                    <option value="standard">Food Tour</option>
+                    <option value="premium">Meal Delivery Services</option>
+                    <option value="None">None</option>
+                </select>
                 <label for="message">Message</label>
                 <textarea id="message" name="message"></textarea>
                 
