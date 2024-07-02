@@ -345,6 +345,48 @@ header .user-account a {
 .reservation-form form button:hover {
     background-color: #e5533d;
 }
+.purchased-meals {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.purchased-meals h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #062a43;
+}
+
+.meal-details {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.meal-plan {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: rgba(73, 108, 148, 0.3) 0px 0px 0px 3px;
+    text-align: left;
+    color: #062a43;
+}
+
+.meal-plan h3 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.meal-plan p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.meal-plan ul {
+    padding-left: 20px;
+}
+
 
 /* Reviews Section */
 .reviews {

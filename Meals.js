@@ -56,3 +56,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const purchasedMealsSection = document.querySelector('.purchased-meals .meal-details');
+
+    // Example data (you may fetch this from a database or API)
+    const purchasedMeals = [
+        {
+            planType: 'Standard',
+            includedMeals: 'Breakfast, Lunch, Dinner',
+            restaurants: ['Local Bistro', 'Taste of Italy', 'Sushi World']
+        },
+        {
+            planType: 'Premium',
+            includedMeals: 'All-inclusive gourmet meals',
+            restaurants: ['Fancy Eats', 'Deluxe Dining']
+        }
+        // Add more objects for additional purchased plans
+    ];
+
+    // Function to generate HTML for each purchased meal plan
+    function renderPurchasedMeals() {
+        purchasedMeals.forEach(meal => {
+            const mealElement = document.createElement('div');
+            mealElement.classList.add('meal-plan');
+
+            mealElement.innerHTML = `
+                <h3>${meal.planType}</h3>
+                <p><strong>Included Meals:</strong> ${meal.includedMeals}</p>
+                <p><strong>Restaurants:</strong></p>
+                <ul>
+                    ${meal.restaurants.map(restaurant => `<li>${restaurant}</li>`).join('')}
+                </ul>
+            `;
+
+            purchasedMealsSection.appendChild(mealElement);
+        });
+    }
+
+    // Call the function to render purchased meal plans
+    renderPurchasedMeals();
+});
+
