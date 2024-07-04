@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Travel Planner</title>
     <style>
         body {
@@ -10,6 +11,7 @@
             margin: 0;
             padding: 0;
             background: #f4f4f4;
+            scroll-behavior: smooth;
         }
 
         .navbar {
@@ -90,6 +92,11 @@
             from { transform: scale(0.5); }
             to { transform: scale(1); }
         }
+        @media (max-width: 768px) {
+    hero {
+        flex-direction: column;
+    }
+}
 
         .content {
             padding: 2em;
