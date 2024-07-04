@@ -19,6 +19,7 @@
             background-color: black;
             padding: 1px;
             margin-top: 50px;
+          
         }
 
         .navbar a {
@@ -106,11 +107,11 @@
             width: 30%;
             margin: 1%;
             padding: 2px;
-            background: #a493e3a6;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             transition: all 0.5s ease-in-out;
             box-shadow: 0 45px 65px rgba(0, 0, 0, 0.50), 0 35px 22px rgba(0, 0, 0, 0.16);
+            border: solid 6px black;
         }
 
         .feature:hover {
@@ -137,7 +138,7 @@
             display: flex;
             justify-content: space-around;
             margin-top: 2em;
-            perspective: 600px;
+            perspective: 1000px;
         }
 
         .trip {
@@ -442,7 +443,7 @@ footer {
     <div class="travel-options">
         <div class="option">
             <img src="https://qph.cf2.quoracdn.net/main-qimg-35dd27ab0ea888cbba88c86c0c7c8679-lq" alt="Bike + Barge">
-            <div class="icon">&#x1F6B2;</div>]
+            <div class="icon">&#x1F6B2;</div> <!-- Bike icon -->
             <h3>BIKE + Manali</h3>
             <p>Our bike and barge tours throughout Europe are the best way to travel and will be an experience you will never forget! The bike is your means to pedal the back roads of countries and cultures and the boat is your unique accommodations throughout your tour.</p>
         </div>
@@ -544,7 +545,7 @@ footer {
         }
 
         setInterval(changeBackgroundImage, 2000);
-        changeBackgroundImage(); 
+        changeBackgroundImage(); // Initial call to set the first image
     </script>
 
 </body>
