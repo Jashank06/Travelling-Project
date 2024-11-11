@@ -12,7 +12,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #062a43;
+    background-color: #000000;
     color: #fff;
 }
 
@@ -79,7 +79,7 @@ header .user-account a {
 }
 
 .hero-buttons .btn {
-    background-color: #062a43;
+    background-color: #000000;
     color: #fff;
     padding: 10px 20px;
     margin: 10px;
@@ -98,7 +98,7 @@ header .user-account a {
 .meal-plans h2 {
     font-size: 36px;
     margin-bottom: 20px;
-    color: #062a43;
+    color: #000000;
 }
 
 .slider {
@@ -130,20 +130,20 @@ header .user-account a {
 .plan h3 {
     font-size: 24px;
     margin: 10px 0;
-    color: #062a43;
+    color: #000000;
 }
 
 .plan p {
     font-size: 16px;
     margin: 5px 0;
-    color: #062a43;
+    color: #000000;
 }
 
 .prev, .next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: #062a43;
+    background-color: #000000;
     color: white;
     border: none;
     padding: 10px;
@@ -162,7 +162,7 @@ header .user-account a {
 
 
 .meal-plans .btn {
-    background-color: #062a43;
+    background-color: #000000;
     color: #fff;
     padding: 10px 20px;
     margin: 10px 0;
@@ -180,7 +180,7 @@ header .user-account a {
 .local-dining h2 {
     font-size: 36px;
     margin-bottom: 20px;
-    color: #062a43;
+    color: #000000;
 }
 
 .local-dining .search-bar input {
@@ -205,7 +205,7 @@ header .user-account a {
 }
 
 .local-dining .tab.active {
-    background-color: #062a43;
+    background-color: #000000;
     color: #fff;
 }
 
@@ -228,7 +228,7 @@ header .user-account a {
     border-radius: 10px;
     box-shadow: rgba(73, 108, 148, 0.3) 0px 0px 0px 3px;
     text-align: left;
-    color: #062a43;
+    color: #000000;
 }
 
 .local-dining .option img {
@@ -291,7 +291,7 @@ header .user-account a {
 .reservation-form h2 {
     font-size: 36px;
     margin-bottom: 20px;
-    color: #062a43;
+    color: #000000;
 }
 
 .reservation-form form {
@@ -305,7 +305,7 @@ header .user-account a {
     margin: 10px 0 5px 0;
     width: 100%;
     text-align: left;
-    color: #062a43;
+    color: #000000;
 }
 
 .reservation-form form input, 
@@ -324,15 +324,15 @@ header .user-account a {
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 1em;
-    color: #062a43;
+    color: #000000;
 }
 .reservation-form form input:focus,
 .reservation-form form textarea:focus {
-    border: 2px solid #062a43;
+    border: 2px solid #000000;
 }
 
 .reservation-form form button {
-    background-color: #062a43;
+    background-color: #000000;
     color: #fff;
     padding: 15px 30px;
     border: none;
@@ -353,7 +353,7 @@ header .user-account a {
 .purchased-meals h2 {
     font-size: 36px;
     margin-bottom: 20px;
-    color: #062a43;
+    color: #000000;
 }
 
 .meal-details {
@@ -370,7 +370,6 @@ header .user-account a {
     border-radius: 10px;
     box-shadow: rgba(73, 108, 148, 0.3) 0px 0px 0px 3px;
     text-align: left;
-    color: #062a43;
 }
 
 .meal-plan h3 {
@@ -381,9 +380,9 @@ header .user-account a {
 .meal-plan p {
     font-size: 16px;
     margin: 5px 0;
+    color: #000000;
 }
-
-.meal-plan ul {
+meal-plan ul {
     padding-left: 20px;
 }
 
@@ -397,7 +396,7 @@ header .user-account a {
 .reviews h2 {
     font-size: 36px;
     margin-bottom: 20px;
-    color: #062a43;
+    color: #000000;
 }
 
 .review-carousel {
@@ -419,7 +418,7 @@ header .user-account a {
 
 .review p {
     font-size: 16px;
-    color: #062a43;
+    color: #000000;
 }
 
 .review p:last-child {
@@ -427,7 +426,7 @@ header .user-account a {
 }
 
 .reviews .btn {
-    background-color: #062a43;
+    background-color: #000000;
     color: #fff;
     padding: 10px 20px;
     margin: 20px 0;
@@ -437,7 +436,7 @@ header .user-account a {
 
 /* Footer */
 footer {
-    background-color: #062a43;
+    background-color: #000000;
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -485,4 +484,4 @@ footer .social-media ul li {
 
 footer .social-media ul li img {
     width: 24px;
-}
+}              
