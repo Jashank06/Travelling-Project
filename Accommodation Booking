@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accommodation Booking</title>
+    <style>
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+            padding: 1px;
+            margin-top: 50px;
+            margin-left: 0px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        body {
+            overflow-x: hidden;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .bg {
+            height: 600px;
+            width: 1500px;
+            margin-top: -10px;
+            margin-left: -15px;
+            object-fit: cover;
+            filter: brightness(40%);
+            position: absolute;
+        }
+
+        .one h1 {
+            position: absolute;
+            color: white;
+            margin-left: 800px;
+            margin-top: 200px;
+            font-size: 60px;
+            width: 40%;
+        }
+
+        .one a {
+            color: white;
+            position: absolute;
+            margin-top: 360px;
+            margin-left: 950px;
+            text-decoration: none;
+            background-color: rgb(255, 65, 65);
+            border-radius: 1px solid rgb(255, 65, 65);
+            border-radius: 15px;
+            padding: 8px;
+            font-size: 30px;
+        }
+
+        .one a:hover {
+            background-color: rgb(252, 0, 0);
+        }
+
+        #book form {
+            position: absolute;
+            margin-top: 575px;
+            margin-left: 200px;
+            background-color: rgb(255, 65, 65);
+            border: 1px solid rgb(255, 65, 65);
+            padding: 5px;
+        }
+
+        #book input {
+            height: 35px;
+            width: 250px;
+        }
+
+        #book input[type=date] {
+            width: 100px;
+            font-size: 17px;
+        }
+
+        #book input[type=number] {
+            width: 120px;
+        }
+
+        #book input[type=submit] {
+            height: 40px;
+            background-color: rgb(40, 40, 255);
+            color: white;
+            font-size: 17px;
+        }
+
+        datalist {
+            width: 250px;
+        }
+
+        #book :placeholder-shown {
+            text-align: center;
+            font-size: 17px;
+        }
+
+        .two h1 {
+            color: black;
+            position: relative;
+            display: block;
+            margin-left: 100px;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            width: 40%;
+            float: right;
+            width: 20%;
+            margin: 30px;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            padding: 2px 16px;
+        }
+
+        .card img {
+            height: 250px;
+            border-radius: 10px;
+        }
+
+        .container img {
+            height: 30px;
+            float: left;
+            margin-top: -40px;
+            margin-left: -10px;
+        }
+
+        .container p {
+            margin-left: 15px;
+        }
+
+        .price {
+            float: right;
+            margin-top: -35px;
+        }
+
+        .three h1 {
+            text-align: center;
+            margin-top: 500px;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            width: 300px;
+            height: 150px;
+            perspective: 1000px;
+            float: right;
+            margin: 30px;
+        }
+        .logo{
+            margin-right: 180px;
+            margin-top: 40px;
+        }
+        
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front p{
+            float: right;
+            margin-top: -70px;
+            margin-right: 30px;
+            font-size: 20px;
+            width: 50%;
+        }
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .flip-card-front {
+            background-color: #ffffff;
+            color: black;
+        }
+
+        .flip-card-back {
+            background-color: #ff5e5e;
+            color: white;
+            transform: rotateY(180deg);
+        }
+        .flip-card-back p{
+            text-align: justify;
+            padding: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .four{
+            background-color: rgb(42, 42, 196);
+            margin-top: 300px;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .five h2{
+            margin-top: 40px;
+            margin-left: 270px;
+        }
+        .five form{
+            width: 50%;
+            margin: 30px;
+            font-size: 20px;
+        }
+
+fieldset {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+legend {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.five input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="number"],
+textarea {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.five input[type="checkbox"],
+input[type="radio"] {
+    margin-top: 5px;
+    margin-right: 5px;
+}
+.five button {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.five button:hover {
+    background-color: #0056b3;
+}
+.six{
+    width: 40%;
+    float: right;
+    margin-top: -2490px;
+}
+.six h2 {
+width: 100%;
+            text-align: left;
+            margin-right: 450px;
+            margin-left: 80px;
+            color: #007BFF;
+        }
+        
+        .eco-friendly-badge {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        
+        .accommodation {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+            height: 200px;
+        }
+        
+        .filter-section {
+            margin-bottom: 20px;
+        }
+        
+        .filter-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .filter-checkbox {
+            margin-right: 10px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #242424;
+            color: white;
+            padding: 40px 0;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            padding: 20px;
+        }
+
+        .footer-section h2, .footer-section h3 {
+            color: #f96d00;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-section ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-section form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-section form input {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .footer-section form button {
+            padding: 10px;
+            background-color: #f96d00;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .footer-section form button i {
+            font-size: 16px;
+        }
+
+        .footer-section form button:hover {
+            background-color: #ff7f11;
+        }
+
+        .social-icons a {
+            color: white;
+            margin-right: 10px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .social-icons a:hover {
+            color: #f96d00;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-section {
+                margin-bottom: 20px;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#home">Accommodation Booking</a>
+        <div class="dropdown">
+            <a href="#services" class="dropbtn">Services</a>
+            <div class="dropdown-content">
+                <a href="#accommodations">Accommodations</a>
+                <a href="#transportation">Transportation</a>
+                <a href="#meals">Meals</a>
+            </div>
+        </div>
+        <a href="#home">Meal Plans and Reservations</a>
+        <a href="#about">Travel Packages</a>
+        <a href="#about">About Us</a>
+    </nav>
+    
+    <div class="one">
+        <img class="bg"
+            src="https://res.cloudinary.com/simplotel/image/upload/x_0,y_172,w_3302,h_1858,r_0,c_crop,q_80,fl_progressive/w_750,f_auto,c_fit/ananta-spa-and-resort-pushkar/Old_charm_with_new_age_ywbitd"
+            alt="">
+        <h1>Affordable Luxury Just a Click Away</h1>
+        <a href="#book">Book Now</a>
+    </div>
+    <div id="book">
+        <form action="">
+            <input list="destination" name="dest" placeholder="Destination">
+            <datalist id="destination">
+                <option value="Goa">
+                <option value="Manali">
+                <option value="Jaipur">
+                <option value="Ooty">
+                <option value="Mumbai">
+                <option value="Banglore">
+            </datalist>
+            <input type="date" name="date" placeholder="Check-in date">
+            <input type="date" name="date" placeholder="Check-out date">
+            <input type="Number" name="adults" placeholder="Adults">
+            <input type="Number" name="Children" placeholder="Children">
+            <input type="Number" name="rooms" placeholder="Rooms">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="two">
+        <h1>Book Your Stay</h1>
+        <div class="card">
+            <img src="https://2.imimg.com/data2/SI/TS/MY-3125576/lemon_tree_hotel_single-room-500x500.jpg" alt="Avatar"
+                style="width:100%">
+            <div class="container">
+                <h4><b>Le Meridien Hotel</b></h4>
+                <p>Ooty</p>
+                <img class="img2"
+                    src="https://t3.ftcdn.net/jpg/02/58/57/58/360_F_258575894_toGnds380LnvwpGTb5e0O7L4wOGDlCtV.jpg"
+                    alt="">
+                <p class="price"><b>Starting from Rs 17,999</b></p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://content.r9cdn.net/rimg/himg/e3/b0/1b/leonardo-14453-150669325-104651.jpg" alt="Avatar"
+                style="width:100%">
+            <div class="container">
+                <h4><b>De Pavillion Hotel</b></h4>
+                <p>Delhi</p>
+                <img class="img2"
+                    src="https://t3.ftcdn.net/jpg/02/58/57/58/360_F_258575894_toGnds380LnvwpGTb5e0O7L4wOGDlCtV.jpg"
+                    alt="">
+                <p class="price"><b>Starting from Rs 20,000</b></p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://media.cnn.com/api/v1/images/stellar/prod/140127103345-peninsula-shanghai-deluxe-mock-up.jpg?q=w_2226,h_1449,x_0,y_0,c_fill"
+                alt="Avatar" style="width:100%">
+            <div class="container">
+                <h4><b>Pride Plaza Hotel</b></h4>
+                <p>Jaipur</p>
+                <img class="img2"
+                    src="https://t3.ftcdn.net/jpg/02/58/57/58/360_F_258575894_toGnds380LnvwpGTb5e0O7L4wOGDlCtV.jpg"
+                    alt="">
+                <p class="price"><b>Starting from Rs 25,000</b></p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://www.hospitality-school.com/wp-content/uploads/2022/06/classification-hotel-room-types.jpg"
+                alt="Avatar" style="width:100%">
+            <div class="container">
+                <h4><b>The Taj Hotel</b></h4>
+                <p>Manali</p>
+                <img class="img2"
+                    src="https://t3.ftcdn.net/jpg/02/58/57/58/360_F_258575894_toGnds380LnvwpGTb5e0O7L4wOGDlCtV.jpg"
+                    alt="">
+                <p class="price"><b>Starting from Rs 40,000</b></p>
+            </div>
+        </div>
+    </div>
+    <div class="three">
+        <h1>Book With Ease</h1>
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img class="logo" src="https://img.freepik.com/free-vector/green-double-circle-check-mark_78370-1749.jpg?size=338&ext=jpg&ga=GA1.1.2116175301.1717891200&semt=ais_user" alt="Avatar" style="margin-top: 30px; width:70px;height:70px;">
+                    <p>Instant Confirmation</p>
+                </div>
+                <div class="flip-card-back">
+                    <p>Book with confidence and get instant confirmation. No waiting, no worries – your reservation is secured immediately.</p>
+                </div>
+            </div>
+        </div>
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img class="logo" src="https://media.istockphoto.com/id/975132444/vector/flexibility-icon-vector-illustration.jpg?s=612x612&w=0&k=20&c=o-xEk8jNly3820xRICADpUOh0mFRWh8I-m6viwCJcEY=" alt="Avatar" style="margin-top: 20px; width:100px;height:100px;">
+                    <p>Flexibility</p>
+                </div>
+                <div class="flip-card-back">
+                    <p>Experience ultimate flexibility with our adaptable booking options. Enjoy peace of mind with free cancellations and easy modifications to fit your plans.</p>
+                </div>
+            </div>
+        </div>
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img class="logo" src="https://img.freepik.com/premium-vector/24-hour-service-iconheadphone-talk-support-phone-consult-customer-problems_68708-3342.jpg" alt="Avatar" style="margin-top: 20px; width:100px;height:100px;">
+                    <p>24/7 Customer Support</p>
+                </div>
+                <div class="flip-card-back">
+                    <p>We're here for you around the clock with 24/7 customer support. Get assistance anytime, day or night, for a seamless booking experience.</p>
+                </div>
+            </div>
+        </div>
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img class="logo" src="https://cdn-icons-png.flaticon.com/512/1728/1728563.png" alt="Avatar" style="width:70px;height:70px;">
+                    <p>Transparent Pricing Policy</p>
+                </div>
+                <div class="flip-card-back">
+                    <p>Enjoy peace of mind with our transparent pricing policy – no hidden fees, just clear and upfront costs. Book with confidence knowing exactly what you'll pay.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="four">
+        <h1>Flat 20% Discount On First Visit</h1>
+    </div>
+    <div class="five">
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Query Form</title>
+</head>
+<body>
+    <h2>Booking Query Form</h2>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Personal Information</legend>
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" required><br><br>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Booking Details</legend>
+            <label>Accommodation Type:</label><br>
+            <input type="radio" id="hotel" name="accommodationType" value="Hotel" required>
+            <label for="hotel">Hotel</label><br>
+            <input type="radio" id="hostel" name="accommodationType" value="Hostel">
+            <label for="hostel">Hostel</label><br>
+            <input type="radio" id="vacationRental" name="accommodationType" value="Vacation Rental">
+            <label for="vacationRental">Vacation Rental</label><br>
+            <input type="radio" id="bnb" name="accommodationType" value="Bed and Breakfast">
+            <label for="bnb">Bed and Breakfast</label><br>
+            <input type="radio" id="otherAccommodation" name="accommodationType" value="Other">
+            <label for="otherAccommodation">Other:</label>
+            <input type="text" id="otherAccommodationText" name="otherAccommodationText"><br><br>
+
+            <label for="destination">Destination City/Location:</label>
+            <input type="text" id="destination" name="destination" required><br><br>
+
+            <label for="checkin">Check-in Date:</label>
+            <input type="date" id="checkin" name="checkin" required><br><br>
+
+            <label for="checkout">Check-out Date:</label>
+            <input type="date" id="checkout" name="checkout" required><br><br>
+
+            <label for="adults">Number of Guests:</label><br>
+            Adults: <input type="number" id="adults" name="adults" min="1" required>
+            Children: <input type="number" id="children" name="children" min="0"><br><br>
+
+            <label>Room Preferences:</label><br>
+            <input type="radio" id="singleRoom" name="roomPreference" value="Single Room" required>
+            <label for="singleRoom">Single Room</label><br>
+            <input type="radio" id="doubleRoom" name="roomPreference" value="Double Room">
+            <label for="doubleRoom">Double Room</label><br>
+            <input type="radio" id="suite" name="roomPreference" value="Suite">
+            <label for="suite">Suite</label><br>
+            <input type="radio" id="otherRoom" name="roomPreference" value="Other">
+            <label for="otherRoom">Other:</label>
+            <input type="text" id="otherRoomText" name="otherRoomText"><br><br>
+        </fieldset>
+        <fieldset>
+            <legend>Price Range</legend>
+            <label for="minPrice">Minimum Price (per night):</label>
+            <input type="number" id="minPrice" name="minPrice" required><br><br>
+
+            <label for="maxPrice">Maximum Price (per night):</label>
+            <input type="number" id="maxPrice" name="maxPrice" required><br><br>
+        </fieldset>
+        <fieldset>
+            <legend>Amenities Required</legend>
+            <input type="checkbox" id="wifi" name="amenities" value="Wi-Fi">
+            <label for="wifi">Wi-Fi</label><br>
+            <input type="checkbox" id="parking" name="amenities" value="Parking">
+            <label for="parking">Parking</label><br>
+            <input type="checkbox" id="breakfast" name="amenities" value="Breakfast Included">
+            <label for="breakfast">Breakfast Included</label><br>
+            <input type="checkbox" id="petFriendly" name="amenities" value="Pet-Friendly">
+            <label for="petFriendly">Pet-Friendly</label><br>
+            <input type="checkbox" id="pool" name="amenities" value="Pool">
+            <label for="pool">Pool</label><br>
+            <input type="checkbox" id="gym" name="amenities" value="Gym">
+            <label for="gym">Gym</label><br>
+            <input type="checkbox" id="kitchen" name="amenities" value="Kitchen Facilities">
+            <label for="kitchen">Kitchen Facilities</label><br>
+            <input type="checkbox" id="accessibility" name="amenities" value="Accessibility Features">
+            <label for="accessibility">Accessibility Features</label><br>
+            <input type="checkbox" id="otherAmenities" name="amenities" value="Other">
+            <label for="otherAmenities">Other:</label>
+            <input type="text" id="otherAmenitiesText" name="otherAmenitiesText"><br><br>
+        </fieldset>
+        <fieldset>
+            <legend>Special Requests or Additional Information</legend>
+            <textarea id="specialRequests" name="specialRequests" rows="4" cols="50"></textarea><br><br>
+        </fieldset>
+        <fieldset>
+            <legend>Additional Services</legend>
+            <label for="instantConfirmation">Instant Confirmation:</label>
+            <input type="checkbox" id="instantConfirmation" name="instantConfirmation"><br><br>
+
+            <label for="customerSupport">24/7 Customer Support:</label>
+            <input type="checkbox" id="customerSupport" name="customerSupport"><br><br>
+
+            <label for="flexibility">Flexibility Options:</label><br>
+            <input type="checkbox" id="freeCancellation" name="flexibility" value="Free Cancellation">
+            <label for="freeCancellation">Free Cancellation</label><br>
+            <input type="checkbox" id="easyModifications" name="flexibility" value="Easy Modifications">
+            <label for="easyModifications">Easy Modifications</label><br><br>
+        </fieldset>
+   
+
+        <button type="submit">Submit Query</button>
+    </form>
+    <div class="six">
+    <h2>Discover Eco-Friendly Accommodations</h2>
+    
+    <div class="filter-section">
+        <div class="filter-label">Filter by:</div>
+        <input type="checkbox" id="greenCertified" class="filter-checkbox">
+        <label for="greenCertified" class="filter-checkbox">Green Certified</label>
+        
+        <input type="checkbox" id="energyEfficient" class="filter-checkbox">
+        <label for="energyEfficient" class="filter-checkbox">Energy Efficient</label>
+        
+        <input type="checkbox" id="wasteReduction" class="filter-checkbox">
+        <label for="wasteReduction" class="filter-checkbox">Waste Reduction</label>
+    </div>
+    
+    <div class="accommodation">
+        <h3>Green Oasis Hotel</h3>
+        <p>Enjoy a sustainable stay at Green Oasis Hotel, certified by Green Key for its eco-friendly practices.</p>
+        <span class="eco-friendly-badge">Eco-Friendly</span>
+        <a href="#" class="cta-button">Book Now</a>
+    </div>
+    
+    <div class="accommodation">
+        <h3>Eco Retreat Resort</h3>
+        <p>Relax in harmony with nature at Eco Retreat Resort, known for its renewable energy and organic dining options.</p>
+        <span class="eco-friendly-badge">Eco-Friendly</span>
+        <a href="#" class="cta-button">Book Now</a>
+    </div>
+
+<div class="accommodation">
+    <h3>Green Horizon Lodge</h3>
+    <p>Stay at Green Horizon Lodge, offering solar-powered rooms and a commitment to reducing carbon footprints.</p>
+    <span class="eco-friendly-badge">Eco-Friendly</span>
+    <a href="#" class="cta-button">Book Now</a>
+</div>
+
+<div class="accommodation">
+    <h3>SolarBay Eco-Resort</h3>
+    <p>SolarBay Eco-Resort offers stunning views and sustainable amenities, including energy-efficient heating and cooling.</p>
+    <span class="eco-friendly-badge">Eco-Friendly</span>
+    <a href="#" class="cta-button">Book Now</a>
+</div>
+
+<div class="accommodation">
+    <h3>Earthwise Boutique Hotel</h3>
+    <p>Earthwise Boutique Hotel boasts eco-friendly architecture, sustainable sourcing of food, and water conservation systems.</p>
+    <span class="eco-friendly-badge">Eco-Friendly</span>
+    <a href="#" class="cta-button">Book Now</a>
+</div>
+
+<div class="accommodation">
+    <h3>GreenStay Resort</h3>
+    <p>At GreenStay Resort, you'll find comfortable, eco-conscious rooms and enjoy locally sourced, organic meals.</p>
+    <span class="eco-friendly-badge">Eco-Friendly</span>
+    <a href="#" class="cta-button">Book Now</a>
+</div>
+
+<div class="accommodation">
+    <h3>EcoVista Hotel</h3>
+    <p>EcoVista Hotel is designed with the environment in mind, featuring natural building materials and zero waste practices.</p>
+    <span class="eco-friendly-badge">Eco-Friendly</span>
+    <a href="#" class="cta-button">Book Now</a>
+</div>
+
+<div class="accommodation">
+    <h3>Sustainable Stay Inn</h3>
+    <p>Sustainable Stay Inn focuses on eco-conscious luxury, with water-saving fixtures, energy-efficient lighting, and a green roof.</p>
+    <span class="eco-friendly-badge">Eco-Friendly</span>
+    <a href="#" class="cta-button">Book Now</a>
+</div>
+
+<div class="accommodation">
+    <h3>Nature’s Rest Eco-Lodge</h3>
+    <p>Nature’s Rest Eco-Lodge provides a peaceful retreat, featuring organic bedding and natural materials throughout its design.</p>
+    <span class="eco-friendly-badge">Eco-Friendly</span>
+    <a href="#" class="cta-button">Book Now</a>
+</div>
+</div>
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h2><img src="path_to_logo" alt="Logo">JetSetJourney</h2>
+        </div>
+        <div class="footer-section">
+            <h3>About Us</h3>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">What Makes Us Different</a></li>
+                <li><a href="#">Our People</a></li>
+                <li><a href="#">Giving Back</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Blog</h3>
+            <ul>
+                <li><a href="#">Choosing the Right Path for Your Camino de Santiago Experience</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Collections</h3>
+            <ul>
+                <li><a href="#">Premier Collection</a></li>
+                <li><a href="#">Discounts/Specials</a></li>
+                <li><a href="#">Private + Tailor-Made</a></li>
+                <li><a href="#">Luxury</a></li>
+                <li><a href="#">Tulip Tours</a></li>
+                <li><a href="#">Our Favorites</a></li>
+                <li><a href="#">Traveler Favorites</a></li>
+                <li><a href="#">Electric Bike</a></li>
+                <li><a href="#">Multi-Adventure</a></li>
+                <li><a href="#">Food + Drink</a></li>
+                <li><a href="#">Family Friendly</a></li>
+                <li><a href="#">Road Bike</a></li>
+                <li><a href="#">Birding Tours</a></li>
+                <li><a href="#">Single Hotel Tours</a></li>
+                <li><a href="#">New Tours</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Subscribe</h3>
+            <form action="#">
+                <input type="text" placeholder="First Name" required>
+                <input type="text" placeholder="Last Name" required>
+                <input type="email" placeholder="your@email.com" required>
+                <button type="submit"><i class="fa fa-arrow-right"></i>Submit</button>
+            </form>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p><i class="fa fa-phone"></i> +91 9911752744</p>
+            <p><i class="fa fa-envelope"></i> info@jetsetjourney.com</p>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-pinterest"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-youtube"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
