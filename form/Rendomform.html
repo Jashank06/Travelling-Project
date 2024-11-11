@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Student Travel Form</title>
+  <link rel="stylesheet" href="Rendomform.css">
+</head>
+<body>
+<div class="form-container">
+  <h2>College Student Travel Form</h2>
+  <form id="travelForm">
+
+    <!-- Solo Travel Meetups Section -->
+<div class="form-section">
+    <h3>Solo Travel Meetups</h3>
+    
+    <!-- Basic Information -->
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" required>
+    <label for="ageRange">Age Range:</label>
+    <select id="ageRange" name="ageRange">
+       <option value="20-25">18-20</option>  
+      <option value="20-25">20-25</option>
+      <option value="26-30">26-30</option>
+      <option value="31+">31+</option>
+    </select>
+    
+    <!-- Interest Tags -->
+    <label for="interestTags">Interest Tags:</label>
+    <textarea id="interestTags" name="interestTags" rows="2" placeholder="e.g., foodie, photography, history buff"></textarea>
+    
+    <!-- Experience Level -->
+    <label for="experienceLevel">Experience Level:</label>
+    <select id="experienceLevel" name="experienceLevel">
+      <option value="beginner">Beginner</option>
+      <option value="intermediate">Intermediate</option>
+      <option value="advanced">Advanced</option>
+    </select>
+  </div>
+  
+  <!-- Trip Type and Group Size -->
+  <div class="form-section">
+    <h3>Trip Type and Group Size</h3>
+    <label for="groupType">Preferred Group Size:</label>
+    <select id="groupType" name="groupType">
+      <option value="small">Small Group (2-4 people)</option>
+      <option value="medium">Medium Group (5-8 people)</option>
+      <option value="large">Large Group (9+ people)</option>
+    </select>
+    
+    <!-- Activity Type -->
+    <label for="preferredActivityType">Preferred Activity Type:</label>
+    <select id="preferredActivityType" name="preferredActivityType">
+      <option value="foodTour">Food Tour</option>
+      <option value="pubCrawl">Pub Crawl</option>
+      <option value="culturalTour">Cultural Tour</option>
+      <option value="outdoorAdventure">Outdoor Adventure</option>
+    </select>
+  </div>
+  
+  <!-- Destination and Local Recommendations -->
+  <div class="form-section">
+    <h3>Destination Selection</h3>
+    <label for="popularSpots">Popular Hangout Spots:</label>
+    <textarea id="popularSpots" name="popularSpots" rows="2" placeholder="e.g., beach towns, hiking trails, vibrant nightlife areas"></textarea>
+    
+    <!-- Local Guide Recommendations -->
+    <p>Check our Local Guides for information on must-see spots and local events.</p>
+  </div>
+  
+  <!-- Flexible Date and Time Options -->
+  <div class="form-section">
+    <h3>Flexible Date and Time Options</h3>
+    <label for="availabilityDates">Available Dates:</label>
+    <input type="date" id="availabilityStart" name="availabilityStart" required> to 
+    <input type="date" id="availabilityEnd" name="availabilityEnd" required>
+    
+    <label for="quickMeetup">Quick Meetup Options:</label>
+    <select id="quickMeetup" name="quickMeetup">
+      <option value="today">Today</option>
+      <option value="tomorrow">Tomorrow</option>
+    </select>
+  </div>
+  
+  <!-- Icebreaker and Group Activities -->
+  <div class="form-section">
+    <h3>Icebreaker Activities</h3>
+    <label for="icebreakerOptions">Choose Icebreaker Activities:</label>
+    <textarea id="icebreakerOptions" name="icebreakerOptions" rows="2" placeholder="e.g., trivia games, team scavenger hunts"></textarea>
+    
+    <label for="activitySuggestions">Suggested Group Activities:</label>
+    <textarea id="activitySuggestions" name="activitySuggestions" rows="2" placeholder="e.g., city tour, cooking class, escape room"></textarea>
+  </div>
+  
+  <!-- Budget Preferences and Shared Expenses -->
+  <div class="form-section">
+    <h3>Budget Preferences</h3>
+    <label for="budgetPreference">Budget Preference:</label>
+    <select id="budgetPreference" name="budgetPreference">
+      <option value="budget">Budget-Friendly</option>
+      <option value="midRange">Mid-Range</option>
+      <option value="luxury">Luxury</option>
+    </select>
+    
+    <p>Estimated costs will be displayed with an option to split the bill.</p>
+  </div>
+  
+  <!-- Safety and Verification -->
+  <div class="form-section">
+    <h3>Safety and Verification</h3>
+    <label for="profileVerification">Profile Verification:</label>
+    <input type="checkbox" id="profileVerification" name="profileVerification">
+    <p>Check to verify your profile for a safer experience.</p>
+    
+    <label for="meetupSafety">Meetup Safety Tips:</label>
+    <p>Follow these safety tips for meeting strangers in new places: meet in public, inform a friend, and set check-in times.</p>
+  </div>
+  
+  <!-- Group Chat and Photo Sharing -->
+  <div class="form-section">
+    <h3>Group Coordination</h3>
+    <label for="groupChat">Join Group Chat:</label>
+    <input type="checkbox" id="groupChat" name="groupChat">
+    <p>Enable group chat to discuss plans and coordinate meet-up spots.</p>
+    
+    <label for="tripAlbum">Share Trip Memories:</label>
+    <input type="checkbox" id="tripAlbum" name="tripAlbum">
+    <p>Upload and share photos in a dedicated trip album.</p>
+  </div>
+  
+  <!-- Submit Section -->
+  <button type="submit" class="submit-btn">Submit Meet-Up Request</button>
+  <p class="success-message" id="successMessage">Your meet-up request has been submitted successfully. Thank you!</p>
+  
+
+<script src="Rendomform.js"></script>
+</body>
+</html>
