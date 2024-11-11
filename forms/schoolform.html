@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Educational Tour Booking Form</title>
+  <link rel="stylesheet" href="schoolform.css">
+</head>
+<body>
+  <div class="background-one"></div>
+    <div class="background-two"></div>
+    <!-- Your form or main content goes here -->
+<div class="form-container">
+    <h2>Educational Tour Booking Form</h2>
+    <form id="tourForm">
+  
+      <!-- School Information -->
+      <div class="form-section">
+        <h3>School Information</h3>
+        <label for="schoolName">School Name:</label>
+        <input type="text" id="schoolName" name="schoolName" required>
+        <label for="schoolAddress">Address:</label>
+        <textarea id="schoolAddress" name="schoolAddress" rows="2" required></textarea>
+        <label for="contactPerson">Contact Person:</label>
+        <input type="text" id="contactPerson" name="contactPerson" required>
+        <label for="contactEmail">Email:</label>
+        <input type="email" id="contactEmail" name="contactEmail" required>
+        <label for="contactPhone">Phone:</label>
+        <input type="tel" id="contactPhone" name="contactPhone" required>
+        <label for="schoolType">School Type:</label>
+        <select id="schoolType" name="schoolType" required>
+          <option value="elementary">Elementary</option>
+          <option value="middle">Middle</option>
+          <option value="high">High School</option>
+        </select>
+      </div>
+  
+      <!-- Student Information Upload -->
+      <div class="form-section">
+        <h3>Student Information</h3>
+        <label for="studentUpload">Upload Student Details (CSV/Excel):</label>
+        <input type="file" id="studentUpload" name="studentUpload" accept=".csv, .xlsx">
+        <p>Or enter student details individually:</p>
+        <label for="studentName">Student Name:</label>
+        <input type="text" id="studentName" name="studentName">
+        <label for="studentAge">Age:</label>
+        <input type="number" id="studentAge" name="studentAge" min="5">
+        <label for="studentGrade">Grade:</label>
+        <input type="text" id="studentGrade" name="studentGrade">
+        <label for="specialRequirements">Special Requirements:</label>
+        <textarea id="specialRequirements" name="specialRequirements" rows="2"></textarea>
+      </div>
+  
+      <!-- Age Group Selection and Suggested Destinations -->
+      <div class="form-section">
+        <h3>Age Group and Suggested Destinations</h3>
+        <label for="ageRange">Select Age Range:</label>
+        <select id="ageRange" name="ageRange">
+          <option value="5-7">5-7</option>
+          <option value="8-10">8-10</option>
+          <option value="11-13">11-13</option>
+          <option value="14-17">14-17</option>
+        </select>
+        <p>Suggested destinations and activities will be displayed based on age range.</p>
+      </div>
+  
+      <!-- Destination Selection -->
+      <div class="form-section">
+        <h3>Destination Selection</h3>
+        <label for="destination">Select Destination:</label>
+        <select id="destination" name="destination" required>
+          <option value="museum">Museum</option>
+          <option value="historical_landmark">Historical Landmark</option>
+          <option value="science_center">Science Center</option>
+          <option value="nature_reserve">Nature Reserve</option>
+          <option value="custom">Other (Please specify below)</option>
+        </select>
+        <label for="customDestination">Custom Destination:</label>
+        <input type="text" id="customDestination" name="customDestination">
+      </div>
+  
+      <!-- Travel Details -->
+      <div class="form-section">
+        <h3>Travel Details</h3>
+        <label for="state">Travel State/Province:</label>
+        <input type="text" id="state" name="state">
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country">
+        <label for="travelDate">Date of Travel:</label>
+        <input type="date" id="travelDate" name="travelDate" required>
+        <label for="duration">Duration (in days):</label>
+        <input type="number" id="duration" name="duration" min="1" required>
+        <label for="alternativeDates">Alternative Dates:</label>
+        <textarea id="alternativeDates" name="alternativeDates" rows="2"></textarea>
+      </div>
+  
+      <!-- Group Size and Chaperone Details -->
+      <div class="form-section">
+        <h3>Group Size and Chaperone Details</h3>
+        <label for="numStudents">Number of Students:</label>
+        <input type="number" id="numStudents" name="numStudents" min="1" required>
+        <label for="numChaperones">Number of Chaperones:</label>
+        <input type="number" id="numChaperones" name="numChaperones" min="1" required>
+        <p>Suggested student-to-chaperone ratios will be displayed based on the selected age group.</p>
+      </div>
+  
+      <!-- Travel and Accommodation Preferences -->
+      <div class="form-section">
+        <h3>Travel and Accommodation Preferences</h3>
+        <label for="transportType">Transportation Type:</label>
+        <select id="transportType" name="transportType">
+          <option value="bus">Bus</option>
+          <option value="train">Train</option>
+          <option value="plane">Plane</option>
+        </select>
+        <label for="accommodationType">Accommodation Preference:</label>
+        <select id="accommodationType" name="accommodationType">
+          <option value="dormitory">Dormitory</option>
+          <option value="hotel">Hotel</option>
+          <option value="camping">Camping</option>
+        </select>
+      </div>
+  
+      <!-- Activities Selection -->
+      <div class="form-section">
+        <h3>Activities Selection</h3>
+        <label for="activities">Choose Activities:</label>
+        <textarea id="activities" name="activities" rows="3"></textarea>
+        <label for="customActivities">Custom Activity Requests:</label>
+        <textarea id="customActivities" name="customActivities" rows="2"></textarea>
+      </div>
+  
+      <!-- Emergency Contact Information -->
+      <div class="form-section">
+        <h3>Emergency Contact Information</h3>
+        <label for="emergencyContactName">Emergency Contact Name:</label>
+        <input type="text" id="emergencyContactName" name="emergencyContactName" required>
+        <label for="emergencyContactPhone">Emergency Contact Phone:</label>
+        <input type="tel" id="emergencyContactPhone" name="emergencyContactPhone" required>
+        <label for="emergencyContactEmail">Emergency Contact Email:</label>
+        <input type="email" id="emergencyContactEmail" name="emergencyContactEmail" required>
+      </div>
+  
+      <!-- Consent Forms and Special Permissions -->
+      <div class="form-section">
+        <h3>Consent Forms and Special Permissions</h3>
+        <label for="consentFormUpload">Upload Parent/Guardian Consent Forms:</label>
+        <input type="file" id="consentFormUpload" name="consentFormUpload" accept=".pdf, .doc, .docx">
+        <label for="specialPermissions">Special Permissions:</label>
+        <textarea id="specialPermissions" name="specialPermissions" rows="2"></textarea>
+      </div>
+  
+      <!-- Additional Notes and Requirements -->
+      <div class="form-section">
+        <h3>Additional Notes and Requirements</h3>
+        <label for="additionalNotes">Additional Notes or Specific Requests:</label>
+        <textarea id="additionalNotes" name="additionalNotes" rows="3"></textarea>
+      </div>
+  
+      <button type="submit" class="submit-btn">Submit Booking Request</button>
+      <p class="success-message" id="successMessage">Thank you for your interest! We will get in touch with you soon.</p>
+    </form>
+  </div>
+
+<script src="schoolform.js"></script>
+</body>
+</html>
