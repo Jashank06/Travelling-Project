@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <h1 class="logo">My Website</h1>
+            <nav class="nav-links">
+                <a href="#login" id="login-link">Login</a>
+                <a href="#signup" id="signup-link">Sign Up</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Login Form -->
+    <section id="login-section" class="form-section active">
+        <div class="form-container">
+            <h2>Login</h2>
+            <form id="login-form">
+                <div class="input-group">
+                    <input type="email" id="login-email" name="email" required>
+                    <label for="login-email">Email</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="login-password" name="password" required>
+                    <label for="login-password">Password</label>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Signup Form -->
+    <section id="signup-section" class="form-section">
+        <div class="form-container">
+            <h2>Sign Up</h2>
+            <form id="signup-form">
+                <div class="input-group">
+                    <input type="email" id="signup-email" name="email" required>
+                    <label for="signup-email">Email</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="signup-password" name="password" required>
+                    <label for="signup-password">Password</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="signup-confirm-password" name="confirm-password" required>
+                    <label for="signup-confirm-password">Confirm Password</label>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(120deg, #4d92f3, #8fd3f4);
+    animation: gradientShift 5s ease infinite alternate;
+    overflow: hidden;
+}
+
+/* Background Animation */
+@keyframes gradientShift {
+    0% { background: linear-gradient(120deg, #f372a2, #8fd3f4); }
+    100% { background: linear-gradient(120deg, #c9c9ff, #ffb6b9); }
+}
+
+/* Header Styling */
+header {
+    width: 100%;
+    background-color: rgba(225, 11, 115, 0.7);
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.nav-links a {
+    color: white;
+    margin-left: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Form Section Styling */
+.form-section {
+    display: none;
+    max-width: 400px;
+    width: 100%;
+    margin-top: 100px;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.form-section.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #f20c8e;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.input-group label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: #666;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #8963f1;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: -8px;
+    font-size: 0.75rem;
+    color: #e93473;
+}
+
+.form-container button {
+    padding: 0.75rem;
+    width: 100%;
+    background-color: #f20c8e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.form-container button:hover {
+    background-color: #8fd3f4;
+}
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const loginLink = document.getElementById('login-link');
+    const signupLink = document.getElementById('signup-link');
+    const loginSection = document.getElementById('login-section');
+    const signupSection = document.getElementById('signup-section');
+
+    loginLink.addEventListener('click', () => {
+        switchForm(loginSection, signupSection);
+    });
+
+    signupLink.addEventListener('click', () => {
+        switchForm(signupSection, loginSection);
+    });
+});
+
+/* Function to switch forms */
+function switchForm(showSection, hideSection) {
+    hideSection.classList.remove('active');
+    setTimeout(() => {
+        hideSection.style.display = 'none';
+        showSection.style.display = 'block';
+        setTimeout(() => showSection.classList.add('active'), 100);
+    }, 400);
+}
+</script>
