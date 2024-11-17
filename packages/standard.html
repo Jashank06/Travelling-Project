@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standard Packages</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: "Jost", sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+            padding: 1px;
+            margin-top: 50px;
+
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            width: 300px;
+            height: 150px;
+            perspective: 1000px;
+            float: right;
+            margin: 30px 50px 30px 20px;
+        }
+
+        .logo {
+            margin-right: 180px;
+            margin-top: 40px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front p {
+            float: right;
+            margin-top: -70px;
+            margin-right: 30px;
+            font-size: 20px;
+            width: 50%;
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .flip-card-front {
+            background-color: #ffffff;
+            color: black;
+        }
+
+        .flip-card-back {
+            background-color: #ff5e5e;
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-back p1 {
+            text-align: justify;
+            padding: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .preminum {
+            margin-left: -20px;
+            /* border: 2px solid red; */
+            padding: 20px 20px 20px 30px;
+            box-shadow: 5px 5px 5px 5px #bababa;
+            border-radius: 15px;
+        }
+
+        .preminum:hover {
+            box-shadow: 5px 5px 5px 5px rgb(166, 166, 242);
+            cursor: pointer;
+        }
+
+        p {
+            /* margin-left:90px ; */
+            padding-top: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 5px 10px 5px 10px;
+            border-radius: 8px;
+            background-color: lightblue;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            height: 40px;
+            width: 150px;
+        }
+
+        footer {
+            background-color: #242424;
+            color: white;
+            padding: 40px 0;
+            margin-top: 200px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            padding: 20px;
+        }
+
+        .footer-section h2,
+        .footer-section h3 {
+            color: #f96d00;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-section ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-section form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-section form input {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .footer-section form button {
+            padding: 10px;
+            background-color: #f96d00;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .footer-section form button i {
+            font-size: 16px;
+        }
+
+        .footer-section form button:hover {
+            background-color: #ff7f11;
+        }
+
+        .social-icons a {
+            color: white;
+            margin-right: 10px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .social-icons a:hover {
+            color: #f96d00;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-section {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#home">Accommodation Booking</a>
+        <div class="dropdown">
+            <a href="#services" class="dropbtn">Services</a>
+            <div class="dropdown-content">
+                <a href="#accommodations">Accommodations</a>
+                <a href="#transportation">Transportation</a>
+                <a href="#meals">Meals</a>
+            </div>
+        </div>
+        <a href="#home">Meal Plans and Reservations</a>
+        <div class="dropdown">
+            <a href="#services" class="dropbtn">Tour packages</a>
+            <div class="dropdown-content">
+                <a href="basic.html" target="_blank">Basic</a>
+                <a href="standard.html" target="_blank">Standard</a>
+                <a href="premium.html" target="_blank">Preminum</a>
+            </div>
+        </div>
+        <a href="#about">About Us</a>
+    </nav>
+    <br><br><br>
+    <h2 style="color: darkblue; font-size: 30px; margin-left: 200px;">Explore some of the Standard packages with
+        us!!!...Hope you enjoy your journey!!!</h2>
+    <br>
+    <h2 style="margin-left: 680px;color: darkblue; font-size: 30px;">Jet Set and Go!!!</h2><br><br>
+    <h2 style="margin-left: 40px;">Standard packages are as follows:</h2><br>
+    <ul style="margin-left: 80px; font-size: 20px;">
+        <li>"Where nature smiles" - Sikkim</li><br>
+        <li>"Dilwalo ki dilli" - Delhi</li><br>
+        <li>"Waheguru ji ka khalsa, Waheguru ji ki fateh" - Punjab</li><br>
+        <li>"Padharo Mhare Desh" - Rajasthan</li><br>
+        <li>"Devo ki Dharti" - Uttar Pradesh</li><br>
+        <li>"Jayjinendra" - Gujarat</li><br><br>
+    </ul>
+    <br><br>
+    <h2 style="margin-left: 40px;">List of activities to explore and experience...</h2><br>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img class="logo" src="img/muesum.jpg" style="margin-top: 30px; width:100px;height:100px;">
+                <p>Muesum</p>
+            </div>
+            <div class="flip-card-back">
+                <p1>A museum is a place of discovery, showcasing art, history, and culture through exhibits that educate and inspire. It preserves the past while offering a window into different worlds and stories.</p1>
+            </div>
+        </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img class="logo" src="img/lakes.jpg" style="margin-top: 20px; width:100px;height:100px;">
+                <p>Lakes</p>
+            </div>
+            <div class="flip-card-back">
+                <p1>Lakes are tranquil bodies of water surrounded by nature, offering a peaceful retreat and beautiful scenery. They are perfect for activities like fishing, boating, or simply enjoying the serenity of the surroundings. </p1>
+            </div>
+        </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img class="logo" src="img/shopping.jpg" alt="Avatar"
+                    style="margin-top: 20px; width:100px;height:100px;">
+                <p>Shopping</p>
+            </div>
+            <div class="flip-card-back">
+                <p1>Shopping is a delightful activity that combines exploring new trends, finding unique items, and enjoying the thrill of discovery. Whether in bustling markets or quiet boutiques, it’s a way to indulge in personal style and needs.</p1>
+            </div>
+        </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img class="logo" src="img/art.jpg" alt="Avatar" style="width:100px;height:100px;">
+                <p>Art & Craft</p>
+            </div>
+            <div class="flip-card-back">
+                <p1> Art and craft are creative expressions that transform raw materials into beautiful, meaningful works. They showcase imagination, skill, and cultural heritage, offering endless possibilities for personal and artistic exploration.</p1>
+            </div>
+        </div>
+    </div>
+
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img class="logo" src="img/boating.jpg" style="margin-top: 30px; width:100px;height:100px;">
+                <p>Boating</p>
+            </div>
+            <div class="flip-card-back">
+                <p1>Boating is a relaxing and enjoyable activity, offering a chance to explore serene waters, enjoy
+                    scenic views, and connect with nature. From leisurely paddling to thrilling rides, it’s perfect for
+                    adventure and tranquility alike.</p1>
+            </div>
+        </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img class="logo" src="img/ganga.jpg" style="margin-top: 20px; width:100px;height:100px;">
+                <p>Ganga Aarti</p>
+            </div>
+            <div class="flip-card-back">
+                <p1>Ganga Aarti is a sacred ritual performed on the banks of the Ganges, where devotees offer prayers and light lamps to honor the river. It creates a serene and spiritual atmosphere, drawing crowds with its rhythmic chants and mesmerizing fire offerings.</p1>
+            </div>
+        </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img class="logo" src="img/folkdrama.jpg" alt="Avatar"
+                    style="margin-top: 20px; width:100px;height:100px;">
+                <p>Folk Drama</p>
+            </div>
+            <div class="flip-card-back">
+                <p1>Folk drama is a traditional form of performance that combines storytelling, music, and dance to reflect cultural heritage and local tales. It connects communities through vibrant, lively expressions of history, myths, and social themes.</p1>
+            </div>
+        </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img class="logo" src="img/bonefire.jpg" alt="Avatar" style="width:100px;height:100px;">
+                <p>Dance-Music Bonefire</p>
+            </div>
+            <div class="flip-card-back">
+                <p1> Music, dance, and bonfire create an electrifying atmosphere, where rhythm and movement come
+                    together under the warmth of the flames. This trio brings joy, connection, and unforgettable
+                    memories to any gathering.</p1>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img class="logo" src="img/festivals.jpg" style="margin-top: 30px; width:100px;height:100px;">
+                <p>Celebrating festivals</p>
+            </div>
+            <div class="flip-card-back">
+                <p1>Festivals are vibrant celebrations that bring communities together, filled with joy, traditions, and cultural expressions. They mark significant occasions and offer a chance to share food, music, and customs, creating lasting memories.</p1>
+            </div>
+        </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img class="logo" src="img/temples.jpg" style="margin-top: 20px; width:100px;height:100px;">
+                <p>Temples</p>
+            </div>
+            <div class="flip-card-back">
+                <p1>Temples are sacred spaces of worship, reflecting rich cultural heritage, architectural beauty, and
+                    spiritual significance. They serve as centers for prayer, meditation, and community gatherings,
+                    fostering a sense of peace and devotion.</p1>
+            </div>
+        </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img class="logo" src="img/streetfood.jpg" alt="Avatar"
+                    style="margin-top: 20px; width:100px;height:100px;">
+                <p>Street food</p>
+            </div>
+            <div class="flip-card-back">
+                <p1>Street food is a vibrant and affordable culinary experience, offering diverse flavors from quick
+                    snacks to hearty meals, all freshly prepared by local vendors. It reflects a region's culture and is
+                    loved for its convenience and authentic taste.</p1>
+            </div>
+        </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img class="logo" src="img/camel.jpg" alt="Avatar" style="width:100px;height:100px;">
+                <p>Camel riding</p>
+            </div>
+            <div class="flip-card-back">
+                <p1> Camel riding is a unique adventure that lets you explore desert landscapes while perched atop these gentle, sturdy animals. It offers a thrilling and memorable experience, connecting you with the ancient traditions of desert travel.</p1>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <h3 style="margin: 90px 20px 20px 70px;font-size: 30px;">Let's explore the premium packages!!!</h3> -->
+    <section id="packages" style="display: inline-flex; margin-left: 120px;margin-top: 100px;">
+        <div id="himalayas">
+            <div class="preminum" style="margin-left:-50px;background-color: rgb(255, 236, 250);">
+                <br>
+                <h2>Sikkim</h2><br>
+                <img src="img/sikkim.jpg" alt="" height="230px" width="360px">
+                <p>"Where nature smiles"</p><br>
+                <ul style="color: black;font-weight: bold;line-height: 25px;">
+                    <li>Nathula Pass</li>
+                    <li>Tsomgo lake</li>
+                    <li>MG Marg</li>
+                    <li>Yumthang valley</li>
+                    <li>Himalayan zoological park</li>
+                    <li>Hunuman tok</li>
+                    <li>Gurudongmar lake</li>
+                    <li>Yume Samdong (Zero point)</li>
+                </ul>
+                <button>Book Now</button>
+            </div>
+        </div>
+        <div id="goa" style="background-color: white;">
+            <div class="preminum" style="margin-left: 70px;background-color: rgb(255, 236, 250);">
+                <br>
+                <h2>Delhi</h2><br>
+                <img src="img/delhis.jpg" alt="" height="230px" width="360px">
+                <p>"Dilwalo ki dilli"</p><br>
+                <ul style="color: black;font-weight: bold;line-height: 25px;">
+                    <li>Akshardham</li>
+                    <li>Gurudwara Shri Bangla Sahib ji</li>
+                    <li>India Gate</li>
+                    <li>Red Fort</li>
+                    <li>Museums</li>
+                    <li>Chandni chowk</li>
+                    <li>Agrasen ki Baoli</li>
+                    <li>Dilli Haat</li>
+                </ul>
+                <button>Book Now</button>
+            </div>
+        </div>
+        <div id="mumbai" style="background-color: white;">
+            <div class="preminum" style="margin-left: 70px;background-color: rgb(255, 236, 250); ">
+                <br>
+                <h2>Punjab</h2><br>
+                <img src="img/punjab.jpg" alt="" height="230px" width="360px">
+                <p>"Waheguru ji ka khalsa,<br> Waheguru ji ki fateh"</p><br>
+                <ul style="color: black;font-weight: bold;line-height: 25px;">
+                    <li>Golden temple</li>
+                    <li>Rock garden</li>
+                    <li>Jallianwala bagh</li>
+                    <li>Devi talab mandir</li>
+                    <li>Shri durgiana temple</li>
+                    <li>Rangla Punjab Haveli</li>
+                    <li>The partition museum</li>
+                </ul>
+                <button>Book Now</button>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="packages1" style="display: inline-flex; margin-left: 120px;margin-top: 100px;">
+        <div id="west" style="background-color: white;">
+            <div class="preminum" style="margin-left: -50px;background-color: rgb(255, 236, 250);">
+                <br>
+                <h2>Rajasthan</h2><br>
+                <img src="img/rajasthan.jpg" alt="" height="230px" width="360px">
+                <p>"Padharo Mhare Desh"</p><br>
+                <ul style="color: black;font-weight: bold;line-height: 25px;">
+                    <li>Hawa mahal</li>
+                    <li>Jaipur - "Pink city"</li>
+                    <li>Udaiput - "lake city"</li>
+                    <li>Jodhpur - "Blue city"'</li>
+                    <li>Jaisalmer</li>
+                    <li>Pushkar</li>
+                    <li>Mount Abu</li>
+                    <li>Bikaner</li>
+                </ul>
+                <button>Book Now</button>
+            </div>
+        </div>
+        <div id="leh" style="background-color: white;">
+            <div class="preminum" style="margin-left: 70px; background-color: rgb(255, 236, 250);">
+                <br>
+                <h2>Uttar Pradesh</h2><br>
+                <img src="img/up.jpg" alt="" height="230px" width="360px">
+                <p>"Devo ki Dharti"</p><br>
+                <ul style="color: black;font-weight: bold;line-height: 25px;">
+                    <li>Ram mandir</li>
+                    <li>Vrindavan</li>
+                    <li>Kashi Vishwanath</li>
+                    <li>Agra - Taj mahal</li>
+                    <li>Prayagraj</li>
+                    <li>Sarnath</li>
+                    <li>Chitrakoot</li>
+                    <li>Jhansi</li>
+                </ul>
+                <button>Book Now</button>
+            </div>
+        </div>
+        <div id="leh" style="background-color: white;">
+            <div class="preminum" style="margin-left: 70px; background-color: rgb(255, 236, 250);">
+                <br>
+                <h2>Gujarat</h2><br>
+                <img src="img/up.jpg" alt="" height="230px" width="360px">
+                <p>"Jayjinendra"</p><br>
+                <ul style="color: black;font-weight: bold;line-height: 25px;">
+                    <li>Statue of Unity</li>
+                    <li>Kutch</li>
+                    <li>Somnath</li>
+                    <li>Gir National Park</li>
+                    <li>Dwarka desh</li>
+                    <li>Surat</li>
+                    <li>Saputara</li>
+                    <li>Champaner</li>
+                </ul>
+                <button>Book Now</button>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h2><img src="path_to_logo" alt="Logo">JetSetJourney</h2>
+            </div>
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">What Makes Us Different</a></li>
+                    <li><a href="#">Our People</a></li>
+                    <li><a href="#">Giving Back</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Blog</h3>
+                <ul>
+                    <li><a href="#">Choosing the Right Path for Your Camino de Santiago Experience</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Collections</h3>
+                <ul>
+                    <li><a href="#">Premier Collection</a></li>
+                    <li><a href="#">Discounts/Specials</a></li>
+                    <li><a href="#">Private + Tailor-Made</a></li>
+                    <li><a href="#">Luxury</a></li>
+                    <li><a href="#">Tulip Tours</a></li>
+                    <li><a href="#">Our Favorites</a></li>
+                    <li><a href="#">Traveler Favorites</a></li>
+                    <li><a href="#">Electric Bike</a></li>
+                    <li><a href="#">Multi-Adventure</a></li>
+                    <li><a href="#">Food + Drink</a></li>
+                    <li><a href="#">Family Friendly</a></li>
+                    <li><a href="#">Road Bike</a></li>
+                    <li><a href="#">Birding Tours</a></li>
+                    <li><a href="#">Single Hotel Tours</a></li>
+                    <li><a href="#">New Tours</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Subscribe</h3>
+                <form action="#">
+                    <input type="text" placeholder="First Name" required>
+                    <input type="text" placeholder="Last Name" required>
+                    <input type="email" placeholder="your@email.com" required>
+                    <button type="submit"><i class="fa fa-arrow-right"></i>Submit</button>
+                </form>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fa fa-phone"></i> +91 9911752744</p>
+                <p><i class="fa fa-envelope"></i> info@jetsetjourney.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-youtube"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

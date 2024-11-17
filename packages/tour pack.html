@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour packages</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: "Jost", sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+            padding: 1px;
+            margin-top: 50px;
+
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        h1 {
+            color: darkblue;
+            margin-left: 600px;
+            font-size: 50px;
+        }
+
+        h2 {
+            color: darkblue;
+        }
+
+        #basic {
+            height: 550px;
+            width: 350px;
+            border-radius: 20px;
+            box-shadow: 5px 5px 5px 5px #bababa;
+        }
+
+        #standard {
+            height: 550px;
+            width: 350px;
+            border-radius: 20px;
+            box-shadow: 5px 5px 5px 5px #bababa;
+            margin-left: 50px;
+        }
+
+        #Preminum {
+            height: 550px;
+            width: 350px;
+            border-radius: 20px;
+            box-shadow: 5px 5px 5px 5px #bababa;
+            margin-left: 50px;
+        }
+
+        #basic:hover {
+            box-shadow: 5px 5px 5px 5px rgb(166, 166, 242);
+            cursor: pointer;
+        }
+
+        #standard:hover {
+            box-shadow: 5px 5px 5px 5px rgb(166, 166, 242);
+            cursor: pointer;
+        }
+
+        #Preminum:hover {
+            box-shadow: 5px 5px 5px 5px rgb(166, 166, 242);
+            cursor: pointer;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 5px 10px 5px 10px;
+            border-radius: 10px;
+            background-color: lightblue;
+            font-weight: bold;
+        }
+
+        button:hover {
+            height: 40px;
+            width: 150px;
+        }
+
+        footer {
+            background-color: #242424;
+            color: white;
+            margin-top: -550px;
+            padding: 40px 0;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            padding: 20px;
+        }
+
+        .footer-section h2,
+        .footer-section h3 {
+            color: #f96d00;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-section ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-section form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-section form input {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .footer-section form button {
+            padding: 10px;
+            background-color: #f96d00;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .footer-section form button i {
+            font-size: 16px;
+        }
+
+        .footer-section form button:hover {
+            background-color: #ff7f11;
+        }
+
+        .social-icons a {
+            color: white;
+            margin-right: 10px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .social-icons a:hover {
+            color: #f96d00;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-section {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#home">Accommodation Booking</a>
+        <div class="dropdown">
+            <a href="#services" class="dropbtn">Services</a>
+            <div class="dropdown-content">
+                <a href="#accommodations">Accommodations</a>
+                <a href="#transportation">Transportation</a>
+                <a href="#meals">Meals</a>
+            </div>
+        </div>
+        <a href="#home">Meal Plans and Reservations</a>
+        <div class="dropdown">
+            <a href="#services" class="dropbtn">Tour packages</a>
+            <div class="dropdown-content">
+                <a href="basic.html" target="_blank">Basic</a>
+                <a href="standard.html" target="_blank">Standard</a>
+                <a href="premium.html" target="_blank">Preminum</a>
+            </div>
+        </div>
+        <a href="#about">About Us</a>
+    </nav>
+    <br><br><br>
+    <h1>Explore with Us!!!</h1><br><br><br>
+    <img src="img/map.png" style="height: 1400px; width:100% ;">
+    <br><br><br>
+    <section id="packages" style="display: inline-flex; margin-left: 180px;position: relative;top: -1100px;">
+        <div id="basic" style="background-color: white;">
+            <div class="basic" style="margin-left: 50px;">
+                <br>
+                <h2>Basic packages</h2><br>
+                <p style="size: 50px;">Explore our some of the basic packages starting from the exclusive offers that
+                    easity fits in your badget.<br><br> These packages basically contains the one-two days tour. </p>
+                <br>
+                <h3><u>Places to visit</u></h3><br>
+                <ul>
+                    <li>"Dudh-daahi ka khana, yeh hmara haryana" - Haryana</li><br>
+                    <li>"Surrender to the divine energy that flows throygh haridwar" - Haridwar</li><br>
+                    <li>"Mahakal lok-Har Har Mahadev" - Ujjain</li><br>
+                    <li>"Vrindavan is my Lord’s place to embrace." - Vrindavan</li><br>
+                    <li>"Jai siya ram" - Aayodhya</li><br>
+                </ul>
+                <button>Explore Now</button>
+            </div>
+        </div>
+        <div id="standard" style="background-color: white;">
+            <div class="basic" style="margin-left: 50px;">
+                <br>
+                <h2>Standard packages</h2><br>
+                <p>Explore our some of the standard packages starting from the exclusive offers that easity fits in your
+                    badget. <br><br>These packages basically contains the tour of less than 1 week. </p><br>
+                <h3><u>Places to visit</u></h3><br>
+                <ul>
+                    <li>"Where nature smiles" - Sikkim</li><br>
+                    <li>"Dilwalo ki dilli" - Delhi</li><br>
+                    <li>"Waheguru ji ka khalsa, Waheguru ji ki fateh" - Punjab</li><br>
+                    <li>"Padharo Mhare Desh" - Rajasthan</li><br>
+                    <li>"Devo ki Dharti" - Uttar Pradesh</li><br>
+                    <li>"Jayjinendra" - Gujarat</li><br>
+                </ul>
+                <button>Explore Now</button>
+            </div>
+        </div>
+        <div id="Preminum" style="background-color: white;">
+            <div class="basic" style="margin-left: 50px;">
+                <br>
+                <h2>Premium packages</h2><br>
+                <p>Explore our some of the preminum packages starting from the exclusive offers that easity fits in your
+                    badget. <br><br>These packages basically contains the tour of maximum of 1 week. </p><br>
+                <h3><u>Places to visit</u></h3><br>
+                <ul>
+                    <li>"Pahado se baate" - Himalayas</li><br>
+                    <li>"Side of India but in beaches" - Goa</li><br>
+                    <li>"Sapno ka ghar" - Mumbai</li><br>
+                    <li>"Seven Sisters" - West of India</li><br>
+                    <li>"Road Trips" - Leh-Ladakh</li><br>
+                    <li>"Beauty with temples" - Southern of India</li><br><br>
+                </ul>
+                <button>Explore Now</button>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h2><img src="path_to_logo" alt="Logo">JetSetJourney</h2>
+            </div>
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">What Makes Us Different</a></li>
+                    <li><a href="#">Our People</a></li>
+                    <li><a href="#">Giving Back</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Blog</h3>
+                <ul>
+                    <li><a href="#">Choosing the Right Path for Your Camino de Santiago Experience</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Collections</h3>
+                <ul>
+                    <li><a href="#">Premier Collection</a></li>
+                    <li><a href="#">Discounts/Specials</a></li>
+                    <li><a href="#">Private + Tailor-Made</a></li>
+                    <li><a href="#">Luxury</a></li>
+                    <li><a href="#">Tulip Tours</a></li>
+                    <li><a href="#">Our Favorites</a></li>
+                    <li><a href="#">Traveler Favorites</a></li>
+                    <li><a href="#">Electric Bike</a></li>
+                    <li><a href="#">Multi-Adventure</a></li>
+                    <li><a href="#">Food + Drink</a></li>
+                    <li><a href="#">Family Friendly</a></li>
+                    <li><a href="#">Road Bike</a></li>
+                    <li><a href="#">Birding Tours</a></li>
+                    <li><a href="#">Single Hotel Tours</a></li>
+                    <li><a href="#">New Tours</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Subscribe</h3>
+                <form action="#">
+                    <input type="text" placeholder="First Name" required>
+                    <input type="text" placeholder="Last Name" required>
+                    <input type="email" placeholder="your@email.com" required>
+                    <button type="submit"><i class="fa fa-arrow-right"></i>Submit</button>
+                </form>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fa fa-phone"></i> +91 9911752744</p>
+                <p><i class="fa fa-envelope"></i> info@jetsetjourney.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-youtube"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Travel Planner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+            padding: 1px;
+            margin-top: 50px;
+          
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .hero {
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+            transition: background-image 1s ease-in-out;
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            animation: fadeIn 2s ease-in-out, zoomIn 3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.5); }
+            to { transform: scale(1); }
+        }
+        @media (max-width: 768px) {
+    hero {
+        flex-direction: column;
+    }
+}
+
+        .content {
+            padding: 2em;
+            text-align: center;
+            background-color: #E6E6FA;
+        }
+
+        .content h2 {
+            font-size: 2.5em;
+            margin-bottom: 1em;
+        }
+
+        .feature {
+            display: inline-block;
+            width: 30%;
+            margin: 1%;
+            padding: 2px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: all 0.5s ease-in-out;
+            box-shadow: 0 45px 65px rgba(0, 0, 0, 0.50), 0 35px 22px rgba(0, 0, 0, 0.16);
+            border: solid 6px black;
+        }
+
+        .feature:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+
+        .feature img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .feature h3 {
+            margin-top: 1em;
+            font-size: 1.5em;
+        }
+
+        .feature p {
+            font-size: 1em;
+            color: #666;
+        }
+
+        .trip-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2em;
+            perspective: 1000px;
+        }
+
+        .trip {
+            flex: 0 0 22%;
+            padding: -6px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+            height: 221px;
+            transition: all 0.5s ease-in-out;
+            box-shadow: 0 45px 65px rgba(0, 0, 0, 0.50), 0 35px 22px rgba(0, 0, 0, 0.16);
+            transition: transform 0.6s;
+        }
+
+         .trip img {
+            background-size: cover;
+            border-radius: 10px;
+            margin-bottom: 1em;
+            opacity: 4;
+        } 
+
+        .trip h3 {
+            font-size: 25px;
+            margin-bottom: -12px;
+            margin-top: 5px;
+        }
+
+        .trip p {
+            font-size: 1em;
+            color: #666;
+        }
+        .trip:hover{
+            transform: rotateY(360deg);
+
+        }
+
+        .cities {
+            padding: 1px;
+            text-align: center;
+            background-size: cover;
+            background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtkNSZj-jZoeDkIu9qlXXJ94th6rdzDxPlgmfj2xtv8dlbbQHYpOYmrjOYGSHN-ZeRIYRT4cf1JN26SFdublSXeCGTtS9outL38VzGbZwnBI9C-Xc1V7Yj1vYGASbnFUgwNLl8-FtHvaDkwQ6-gpAPhCDBERClKHtNFItXgtAsob7enffyrXPoK0GVdw/s16000/v1-Minimal-view-wallpaper-pc-8K.jpg");
+            margin-top : 146px;
+            height: 450px;
+        }
+
+        .cities h2 {
+            font-size: 2.5em;
+            margin-bottom: 1em;
+            color: white;
+        }
+
+        .city {
+            display: inline-block;
+            width: 27%;
+            margin: 1%;
+            padding: 2px;
+            background: #a493e3a6;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: all 0.5s ease-in-out;
+            cursor: pointer;
+            height: 237px;
+            border: solid 4px white;
+        }
+
+        .city:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+
+        .city img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .city h3 {
+            margin-top: 1em;
+            font-size: 1.5em;
+            color: white;
+        }
+
+        .city p {
+            font-size: 1em;
+            color: #666;
+        }
+        .travel-options {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 2em 0;
+    background-color: #fff;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.option {
+    width: 45%;
+    text-align: center;
+    padding: 1em;
+    box-shadow: 0 45px 65px rgba(0, 0, 0, 0.50), 0 35px 22px rgba(0, 0, 0, 0.16);
+}
+
+.option img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 45px 65px rgba(0, 0, 0, 0.50), 0 35px 22px rgba(0, 0, 0, 0.16);
+}
+
+.option .icon {
+    font-size: 2em;
+    margin: 1em 0;
+}
+
+.option h3 {
+    font-size: 1.5em;
+    margin: 1em 0;
+    color: #333;
+}
+
+.option p {
+    font-size: 1em;
+    color: #666;
+    line-height: 1.5em;
+}
+footer {
+    background-color: #242424;
+    color: white;
+    padding: 40px 0;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    padding: 20px;
+}
+
+.footer-section h2, .footer-section h3 {
+    color: #f96d00;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-section form input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+}
+
+.footer-section form button {
+    padding: 10px;
+    background-color: #f96d00;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+}
+
+.footer-section form button i {
+    font-size: 16px;
+}
+
+.footer-section form button:hover {
+    background-color: #ff7f11;
+}
+
+.social-icons a {
+    color: white;
+    margin-right: 10px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.social-icons a:hover {
+    color: #f96d00;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer-section {
+        margin-bottom: 20px;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#home">Accommodation Booking</a>
+        <div class="dropdown">
+            <a href="#services" class="dropbtn">Services</a>
+            <div class="dropdown-content">
+                <a href="#accommodations">Accommodations</a>
+                <a href="#transportation">Transportation</a>
+                <a href="#meals">Meals</a>
+            </div>
+        </div>
+        <a href="#home">Meal Plans and Reservations</a>
+        <a href="#about">Travel Packages</a>
+        <a href="#about">About Us</a>
+    </nav>
+
+    <div class="hero" id="hero">
+        <h1>JetSetJourney</h1>
+    </div>
+
+    <div class="content">
+        <h2>Plan Your Perfect Trip</h2>
+        <div class="feature">
+            <img src="https://www.luxurylifestylemag.co.uk/wp-content/uploads/2019/08/general-view-11-standard-Copy.jpg" alt="Accommodations" height="235px" >
+            <h3>Accommodations</h3>
+            <p>Find the best places to stay with our comprehensive listings.</p>
+        </div>
+        <div class="feature">
+            <img src="https://media.istockphoto.com/id/174870355/photo/visual-representation-of-transportation-modes.jpg?s=612x612&w=0&k=20&c=IjL0uThZwQHau2TKnBseS_lAFRxVObjmN7o_GRuUB0E=" alt="Transportation" height="250px">
+            <h3>Transportation</h3>
+            <p>Book your flights, trains, and cars all in one place.</p>
+        </div>
+        <div class="feature">
+            <img src="https://www.oklahoman.com/gcdn/authoring/authoring-images/2024/02/28/PLOU/72772244007-cracker-barrel-ha.jpg?width=1200&disable=upscale&format=pjpg&auto=webp" alt="Meals" height="250px">
+            <h3>Meals</h3>
+            <p>Discover great dining options and meal deals.</p>
+        </div>
+    </div>
+
+    <div class="trip-container">
+        <div class="trip">
+            <img src="https://www.educationalschooltrip.com/wp-content/uploads/Top-tips-for-a-successful-School-Trip-.jpg" alt="School Trip" height="220px">
+            <h3>School Trip</h3>
+            <p>Explore educational destinations with friends.</p>
+        </div>
+        <div class="trip">
+            <img src="https://www.shutterstock.com/image-photo/hippie-friends-van-on-road-600nw-735503365.jpg" alt="College Trip" height="220px">
+            <h3>College Trip</h3>
+            <p>Experience adventures with classmates.</p>
+        </div>
+        <div class="trip">
+            <img src="https://economictimes.indiatimes.com/thumb/msid-62982592,width-1200,height-900,resizemode-4,imgsize-71351/plan-a-vacation-with-family-tips-for-multi-generational-travel.jpg?from=mdr" alt="Family Trip" height="220px">
+            <h3>Family Trip</h3>
+            <p>Create memories with loved ones.</p>
+        </div>
+        <div class="trip">
+            <img src="https://img.freepik.com/free-photo/medium-shot-happy-friends-city-lifestyle_23-2149003092.jpg?w=740&t=st=1719447321~exp=1719447921~hmac=246549bdb4016e13c7d1bdc505c1012a1d5f62e89e5cd32f84f7ac74e036bb87" alt="Hangout" height="220px">
+            <h3>Hangout with Random People</h3>
+            <p>Have fun exploring new places with unknowns.</p>
+        </div>
+    </div>
+
+    <div class="cities">
+        <h2>Best Cities to Travel</h2>
+        <div class="city">
+            <img src="https://travelpack.com/public/imagedb/sysimgdocs/rszimages/Dheh_pk30045_1.gif" alt="Delhi" height="235px">
+            <h3>Delhi</h3>
+        </div>
+        <div class="city">
+            <img src="https://www.travelpack.in/public/imagedb/sysimgdocs/rszimages/Delhi-manali_pk29357_1.gif" alt="Manali" height="235px">
+            <h3>Manali</h3>
+        </div>
+        <div class="city">
+            <img src="https://www.travelpack.com/public/imagedb/sysimgdocs/rszimages/Park-Hyatt-Beach-Resort-Spa-pk23432-1-pk24020-1_pk24770_1.gif" alt="Goa" height="235px">
+            <h3>Goa</h3>
+        </div>
+    </div>
+    <div class="travel-options">
+        <div class="option">
+            <img src="https://qph.cf2.quoracdn.net/main-qimg-35dd27ab0ea888cbba88c86c0c7c8679-lq" alt="Bike + Barge">
+            <div class="icon">&#x1F6B2;</div> <!-- Bike icon -->
+            <h3>BIKE + Manali</h3>
+            <p>Our bike and barge tours throughout Europe are the best way to travel and will be an experience you will never forget! The bike is your means to pedal the back roads of countries and cultures and the boat is your unique accommodations throughout your tour.</p>
+        </div>
+        <div class="option">
+            <img src="https://www.royalenfield.com/content/dam/royal-enfield/india/motorcycles/landing/continental-gt-650-thumbnail.jpg">
+            <div class="icon">&#x1F3E8;</div> <!-- Hotel icon -->
+            <h3>BIKE + HOTEL</h3>
+            <p>Our bike tours in Europe, Asia, and beyond are as varied as you are. We have self-guided, guided, and supported bicycle tours, with most now offering the electric bike option.</p>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h2><img src="path_to_logo" alt="Logo">JetSetJourney</h2>
+            </div>
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">What Makes Us Different</a></li>
+                    <li><a href="#">Our People</a></li>
+                    <li><a href="#">Giving Back</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Blog</h3>
+                <ul>
+                    <li><a href="#">Choosing the Right Path for Your Camino de Santiago Experience</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Collections</h3>
+                <ul>
+                    <li><a href="#">Premier Collection</a></li>
+                    <li><a href="#">Discounts/Specials</a></li>
+                    <li><a href="#">Private + Tailor-Made</a></li>
+                    <li><a href="#">Luxury</a></li>
+                    <li><a href="#">Tulip Tours</a></li>
+                    <li><a href="#">Our Favorites</a></li>
+                    <li><a href="#">Traveler Favorites</a></li>
+                    <li><a href="#">Electric Bike</a></li>
+                    <li><a href="#">Multi-Adventure</a></li>
+                    <li><a href="#">Food + Drink</a></li>
+                    <li><a href="#">Family Friendly</a></li>
+                    <li><a href="#">Road Bike</a></li>
+                    <li><a href="#">Birding Tours</a></li>
+                    <li><a href="#">Single Hotel Tours</a></li>
+                    <li><a href="#">New Tours</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Subscribe</h3>
+                <form action="#">
+                    <input type="text" placeholder="First Name" required>
+                    <input type="text" placeholder="Last Name" required>
+                    <input type="email" placeholder="your@email.com" required>
+                    <button type="submit"><i class="fa fa-arrow-right"></i>Submit</button>
+                </form>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fa fa-phone"></i> +91 9911752744</p>
+                <p><i class="fa fa-envelope"></i> info@jetsetjourney.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-youtube"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+    
+
+    <script>
+        const images = [
+            'https://getwallpapers.com/wallpaper/full/5/4/d/151063.jpg',
+            'https://getwallpapers.com/wallpaper/full/a/a/1/150892.jpg',
+            'https://getwallpapers.com/wallpaper/full/1/4/d/151079.jpg',
+            'https://getwallpapers.com/wallpaper/full/8/9/c/150932.jpg'
+        ];
+
+
+        let currentImageIndex = 0;
+        const hero = document.getElementById('hero');
+
+        function changeBackgroundImage() {
+            hero.style.backgroundImage = `url('${images[currentImageIndex]}')`;
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+        }
+
+        setInterval(changeBackgroundImage, 2000);
+        changeBackgroundImage(); // Initial call to set the first image
+    </script>
+
+</body>
+</html>
